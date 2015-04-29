@@ -3,7 +3,7 @@
 		<div class="push_three six columns formulario">
 
 			<div class="encabezado">
-				Registrate como nuevo usuario funciona
+				Registrate como nuevo usuario pudrete
 			</div>
 			<div class="contenido">
 				<!-- id_oficina: nombre del select-->
