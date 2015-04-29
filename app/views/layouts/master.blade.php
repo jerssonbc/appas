@@ -36,5 +36,7 @@
 
 	@yield('modulo')
 
+	@yield('prueba')
+
 </body>
 </html>

@@ -3,7 +3,9 @@
 		<div class="push_three six columns formulario">
 
 			<div class="encabezado">
-				Registrate como nuevo usuario Para la empresa TATAJJEJE
+
+				Registrate como nuevo usuario
+				
 			</div>
 			<div class="contenido">
 				<!-- id_oficina: nombre del select-->
@@ -11,17 +13,18 @@
 				Form::open(array('url'=>'registrar'))
 
 			}}
+
 			<ul>
 				
 				<li class="field">
 				{{
-					Form::text('nombre',null,array('placeholder'=>'Ingrese su nombre','class'=>'input xxwide','maxlength'=>30,'required'=>'true'));
+					Form::text('nombre',null,array('placeholder'=>'Ingrese su nombre','class'=>'input xxwide','maxlength'=>50,'required'=>'true'));
 				}}
 				</li>
 
 				<li class="field">
 				{{
-					Form::text('apellido',null,array('placeholder'=>'Ingrese sus apellidos','class'=>'input xxwide','maxlength'=>30,'required'=>'true'));
+					Form::text('apellidos',null,array('placeholder'=>'Ingrese sus apellidos','class'=>'input xxwide','maxlength'=>70,'required'=>'true'));
 				}}
 				</li>
 
