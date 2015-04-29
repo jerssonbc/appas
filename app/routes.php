@@ -13,8 +13,12 @@
 
 Route::get('/', function()
 {
+	//return View::make('hello');
 	//return View::make('layouts.master');
 	return Redirect::to('registrar');
 });
 
 Route::get('registrar','UsuariosController@registrar');
+
+
+Route::post('registrar','UsuariosController@registrar_user');
