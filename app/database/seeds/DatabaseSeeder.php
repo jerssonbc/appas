@@ -12,6 +12,13 @@ class DatabaseSeeder extends Seeder {
 		Eloquent::unguard();
 
 		// $this->call('UserTableSeeder');
+		
+		DB::table('tbla_estado')->insert(array('id' =>1,'estado' => 'Desactivado'));
+      	DB::table('tbla_estado')->insert(array('id' =>2,'estado' => 'Activado'));
+      	DB::table('tbla_estado')->insert(array('id' =>3,'estado' => 'Eliminado'));
+
+      	$this->command->info('Estados insertados en la tabla: tbla_estados han sido 3.');
+
 	}
 
 }

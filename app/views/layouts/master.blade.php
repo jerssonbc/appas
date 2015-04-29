@@ -2,27 +2,39 @@
 <html lang="es">
 <head>
 	<meta charset="UTF-8">
-	<title>Applicación Auditoria</title>
-	<!-- Bootstrap core CSS -->
-	{{HTML::style('css/bootstrap.css')}}
-	<!-- external css-->
-	{{HTML::style('css/zabuto_calendar.css')}}
-	{{HTML::style('css/gritter/jquery.gritter.css')}}
-	{{HTML::style('css/lineicons/style.css')}}
-	<!-- Custom styles for this template -->
-	{{HTML::style('css/style.css')}}
-	{{HTML::style('css/style-responsive.css')}}
+	<title>Aplicación Auditoria</title>
+	{{HTML::style('css/gumby.css')}}
+	{{HTML::style('css/main.css')}}
+	{{HTML::script('js/jquery.min.js'); }}
+
+	{{HTML::script('js/modernizr-2.6.2.min.js'); }}
+
+	{{HTML::script('js/gumby.js'); }}
+
+	{{HTML::script('js/gumby.toggleswitch.js'); }}
+
+	{{HTML::script('js/gumby.init.js'); }}
+	
+	{{HTML::script('js/plugins.js'); }}
 
 </head>
 <body>
-	<section id="container">
-		<header class="header black-bg">
-			<div class="sidebar-toggle-box">
-                  <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
-            </div>
-            <a href="index.html" class="logo"><b>App Auditoria</b></a>
+	<div class="navbar" id="navegacion">
+		<div class="items_navegacion" gumby-trigger="#navegacion >.items_navegacion > ul">
+			<a href="#" class="toggle">
+				<i class="icon-menu"></i>
+			</a>
+		</div>
+	</div>
+	<div class="notificaciones">
+		<div class="row">
+			<div class="twelve columns">
+				{{ @$notificacion }}
+			</div>
+		</div>
+	</div>
 
-		</header>
-	</section>
+	@yield('modulo')
+
 </body>
 </html>
