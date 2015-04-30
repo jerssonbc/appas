@@ -23,6 +23,8 @@ class CrearTablaTblaEmpresa extends Migration {
 			$table->text('resena_historica');
 			$table->decimal('ug_latitud',9,2)->nullable();
 			$table->decimal('ug_longitud',9,2)->nullable();
+			$table->timestamps();
+
 		});
 	}
 
