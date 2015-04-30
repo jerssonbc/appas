@@ -5,7 +5,8 @@
 		protected $layout='layouts.master';
 		function __construct()
 		{
-			# code...
+			$this->beforeFilter('validar',array('only'=>(
+				'principal')));
 		}
 		function registrar(){
 			$this->layout->notificacion="Bienvendio a Auditoria Applicación";
@@ -119,6 +120,10 @@
 						'encabezado'=>$encabezado,
 						'cuerpo'    =>$mensajes));
 			//$this->layout->notificacion='';
+		}
+		function cerrarsesion(){
+			Session::flush();
+			$this->login();
 		}
 
 	}

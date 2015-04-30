@@ -1,58 +1,49 @@
 @section('modulo')
-	<div class="row">
-		<div class="push_three six columns formulario">
-
-			<div class="encabezado">
-
+	
+		
+			<div class="container">
 				Registrate como nuevo usuario
 				
-			</div>
-			<div class="contenido">
-				<!-- id_oficina: nombre del select-->
+			
 			{{
-				Form::open(array('url'=>'registrar'))
+				Form::open(array('url'=>'registrar','class'=>'form-signin'))
 
 			}}
 
-			<ul>
+		
 				
-				<li class="field">
+				<label for="inputEmail" class="sr-only">Nombre</label>
 				{{
-					Form::text('nombre',null,array('placeholder'=>'Ingrese su nombre','class'=>'input xxwide','maxlength'=>50,'required'=>'true'));
+					Form::text('nombre',null,array('placeholder'=>'Ingrese su nombre','class'=>'form-control','maxlength'=>50,'required'=>'true'));
 				}}
-				</li>
+				
 
-				<li class="field">
 				{{
-					Form::text('apellidos',null,array('placeholder'=>'Ingrese sus apellidos','class'=>'input xxwide','maxlength'=>70,'required'=>'true'));
+					Form::text('apellidos',null,array('placeholder'=>'Ingrese sus apellidos','class'=>'form-control','maxlength'=>70,'required'=>'true'));
 				}}
-				</li>
+				
 
-				<li class="field">
+				
 				{{
-					Form::email('email',null,array('class'=>'input xxwide','maxlength'=>62,'placeholder'=>'Ingrese su e-mail','required'=>'true'));
+					Form::email('email',null,array('class'=>'form-control','maxlength'=>62,'placeholder'=>'Ingrese su e-mail','required'=>'true'));
 				}}
-				</li>
+				
 
-				<li class="field">
+				
 				{{
-					Form::password('password',array('class'=>'input xxwide','maxlength'=>16,'placeholder'=>'Ingrese su password','required'=>'true'));
+					Form::password('password',array('class'=>'form-control','maxlength'=>16,'placeholder'=>'Ingrese su password','required'=>'true'));
 				}}
-				</li>
+			
+				{{
+					Form::submit('Registrate !');
+				}}
+				
 
-				<li>
-					<div class="medium primary btn">
-						{{
-							Form::submit('Registrate !');
-						}}
-					</div>
-				</li>
-
-			</ul>
-			{{
+			
+				{{
 				Form::close()
 				}}
-			</div>
+
 		</div>
-	</div>
+	
 @stop

@@ -88,3 +88,10 @@ Route::filter('csrf', function()
 		throw new Illuminate\Session\TokenMismatchException;
 	}
 });
+
+Route::filter('validar',function(){
+	$id_usuario=Session::get('id_usuario');
+	if (!$id_usuario) {
+		return Redirect::to('login');
+	}
+});

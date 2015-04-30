@@ -21,6 +21,7 @@ Route::get('/', function()
 Route::get('registrar','UsuariosController@registrar');
 Route::get('login','UsuariosController@login');
 Route::get('principal','UsuariosController@principal');
+Route::get('salir','UsuariosController@cerrarsesion');
 
 Route::post('registrar','UsuariosController@registrar_user');
 Route::post('autenticar','UsuariosController@autenticar');
