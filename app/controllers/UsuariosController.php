@@ -35,5 +35,91 @@
 			}
 
 		}
+		function login(){
+			$this->layout->notificacion	='Bienvenido al Sistema de Auditoria';
+			$this->layout->modulo 		=View::make('usuarios.login');
+		}
+		function autenticar(){
+			$data = Input::all();
+
+			//Reglas de validacion
+			$reglas=array(
+				'email'    => 'required',
+				'password' => 'required|min:8'
+
+				);
+			//mensajes de reglas de validacion
+			$mensajes=array(
+				'email.required'  =>'La dirección de correo electrónico es un campo obligatorio ',
+				'password.min'    =>'El passwrod debe tener al menos un total de 8 caracters ',
+				'password.required'=>'El password es un campo obligatorio'
+				);
+
+
+			//Instanciar el validador propio de Laravel
+
+			$validacion= Validator::make($data,$reglas,$mensajes);
+
+			if($validacion->fails()){
+				$mensajes=$validacion->messages()->all();
+				$encabezado="Advertencia: ";
+				$this->mostrar_mensajes($encabezado,$mensajes);
+			}else{
+				$usuarios=new UsuariosModel;
+
+				$email    =Input::get('email');
+				$password =Input::get('password');
+				//Consultar si los datos ingresados se encuentra en la db
+				$datos_usuario=
+					$usuarios->where('email','=',$email)->
+					where('password','=',md5($password))->first();
+
+				if(!$datos_usuario){
+					$encabezado="Advertencia";
+					$mensaje="El usuario no se encuentra registrado en la base de datos";
+					$this->mostrar_mensajes($encabezado,$mensaje);
+				}else{
+					if($datos_usuario->estado_id==1){
+						$encabezado="Error!";
+						$mensaje="Necesita activar su cuenta de correo electrónico";
+						$this->mostrar_mensajes($encabezado,$mensaje);
+
+					}else if($datos_usuario->estado_id==3){
+						$encabezado="Error!";
+						$mensaje='El usuario se encuentra eliminado';
+						$this->mostrar_mensajes($encabezado,$mensaje);
+						
+					}else{
+						//Crear sesion, ID, Rol y el nombre de completo
+						Session::flush();
+
+						Session::put('id_usuario',$datos_usuario->id);
+						//Session::put('id_rol',$datos_usuario->id_rol);
+						Session::put('nombre_completo',$datos_usuario->nombre.' '.$datos_usuario->apellidos);
+
+						return Redirect::to('principal');
+					}
+				}
+			}
+
+
+		}
+		function principal()
+		{
+			$this->layout->notificacion="Bienvenido al sistema: ".Session::get('nombre_completo');
+			$this->layout->modulo=View::make('usuarios.principal');
+		}
+		function mostrar_mensajes($encabezado,$mensajes){
+			if(!is_array($mensajes)){
+				$mensajes=array('mensaje'=>$mensajes);
+			}
+			
+			$this->layout->modulo=View::make('mensaje',
+					array(
+						'encabezado'=>$encabezado,
+						'cuerpo'    =>$mensajes));
+			//$this->layout->notificacion='';
+		}
+
 	}
  ?>

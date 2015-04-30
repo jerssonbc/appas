@@ -15,10 +15,12 @@ Route::get('/', function()
 {
 	//return View::make('hello');
 	//return View::make('layouts.master');
-	return Redirect::to('registrar');
+	return Redirect::to('login');
 });
 
 Route::get('registrar','UsuariosController@registrar');
-
+Route::get('login','UsuariosController@login');
+Route::get('principal','UsuariosController@principal');
 
 Route::post('registrar','UsuariosController@registrar_user');
+Route::post('autenticar','UsuariosController@autenticar');
