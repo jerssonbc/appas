@@ -11,24 +11,34 @@
 </head>
 <body>
 	@include("base.nav")
+	
+	<div class="row">
+		<div class="well"> {{ @$notificacion }}</div>		
+	</div>
+	
+	@if(!Session::get('id_usuario'))
+		@yield('modulo')
+    @else
+    	<div class="container-fluid">
+      		<div class="row">
+	        <!-- Sidebar -->
+	        @include("base.sidebar")
+	        <!-- End Sidebar -->
+	        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+	          <h1 class="page-header">Un titulo</h1>
+	          
+	          <div class="table-responsive">
+	            <!-- Table -->
+	            @yield('modulo')
+	            <!-- End Table -->
+	          </div>
+	        </div>
+	      </div>
+    	</div>
 
-				@if(!Session::get('id_usuario'))
-				@else
-					<li>
-					<!-- Menu para sali-->
-					<a href="{{url('/salir')}}">
-						<span>Salir</span>
-						
-					</a>
-					</li>
-				@endif
+    @endif
 	
 	
-				{{ @$notificacion }}
-		
-	
-	
-	@yield('modulo')
 
 
 	{{ HTML::script('js/ie10-viewport-bug-workaround.js') }}

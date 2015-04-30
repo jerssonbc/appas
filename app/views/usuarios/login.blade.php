@@ -1,7 +1,5 @@
 @section('modulo')
 	<div class="container">
-				Entrar a APPAS
-		
 				{{Form::open(array('url'=>'autenticar','class'=>'form-signin'))}}
 						<h2 class="form-signin-heading">
           <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>

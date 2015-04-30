@@ -1,10 +1,5 @@
 @section('modulo')
-	
-		
 			<div class="container">
-				Registrate como nuevo usuario
-				
-			
 			{{
 				Form::open(array('url'=>'registrar','class'=>'form-signin'))
 

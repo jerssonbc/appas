@@ -7,12 +7,21 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Enterprise</a>
+          <a class="navbar-brand" href="#">Auditoria de Sistemas</a>
         </div>
 
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Cerrar Sesión</a></li>
+            @if(!Session::get('id_usuario'))
+            @else
+              <li>
+              <!-- Menu para sali-->
+              <a href="{{url('/salir')}}">
+                <span>Salir</span>
+                
+              </a>
+              </li>
+            @endif
           </ul>
         </div>
       </div>
