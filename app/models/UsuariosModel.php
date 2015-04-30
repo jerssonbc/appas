@@ -7,11 +7,10 @@
 		// 	# code...
 		// }
 		private $regla=array(
-			'email'     => 'unique:tbla_usuario|required',
+			'email'     => 'unique:tbla_usuario|required|email',
 			'nombre'    => 'required|alpha',
-			'apellidos' => 'required|alpha',
-			'password'  => 'required|min:8'
-
+			'apellidos' => 'required|regex:/^([a-zA-ZñÑáéíóúÁÉÍÓÚ])+((\s*)+([a-zA-ZñÑáéíóúÁÉÍÓÚ]*)*)+$/',
+			'password'  => 'required|min:6'
 			);
 		private $mensajes=array(
 			'email.unique'     =>'La cuenta de correo electrónico ya se encuentra registrada',

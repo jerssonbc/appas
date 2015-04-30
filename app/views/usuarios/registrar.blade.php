@@ -3,7 +3,9 @@
 		<div class="push_three six columns formulario">
 
 			<div class="encabezado">
+
 				Registrate como nuevo usuario
+				
 			</div>
 			<div class="contenido">
 				<!-- id_oficina: nombre del select-->
