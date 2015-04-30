@@ -1,46 +1,42 @@
 @section('modulo')
-	<div class="row">
-		<div class="push_three six columns formulario" >
-			<div class="encabezado">
+	<div class="container">
 				Entrar a APPAS
-			</div>
-			<div class="contenido">
-				{{Form::open(array('url'=>'autenticar'))}}
-					<ul>
-						<li class="field">
+		
+				{{Form::open(array('url'=>'autenticar','class'=>'form-signin'))}}
+						<h2 class="form-signin-heading">
+          <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
+          APPAS
+        </h2>
 							{{Form::email('email',null,array(
-								'class'      => 'input xxwide',
+								'class'      => 'form-control',
 								'maxlength'  => 62,
 								'placeholder'=>'Ingrese su email',
 								'required'   =>'true'
 							))}}
-						</li>
-						<li class="field">
+						
 							{{
 								Form::password('password',array(
-								'class'      => 'input xxwide',
+								'class'      => 'form-control',
 								'maxlength'  => 16,
 								'placeholder'=>'Ingrese su password',
 								'required'   =>'true'
 							));
 
 							}}
-						</li>
-						<li >
-							<div class="medium primary btn">
-								{{Form::submit('Acceder!')}}
-							</div>
-							<div class="medium secondary btn">
-								<a href="{{url('/registrar')}}">Registrate!
+						
+							
+								{{Form::submit('Acceder!',array('class'=>'btn btn-lg btn-primary btn-block'))}}
+							
+							
+								<a class="btn btn-success" href="{{url('/registrar')}}">Registrate!
 								</a>
-							</div>
-						</li>
+							
+						
 
 
 
-					</ul>
+					
 				{{Form::close()}}
-			</div>
 		</div>
-	</div>
+		
 @stop

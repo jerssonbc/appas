@@ -1,19 +1,22 @@
 @section('modulo')
-	<div class="modal active" id="modal1">
-		<div class="content">
-			<div class="row">
-				<div class="ten columns centered text-center">
-					<h2>
-						{{$encabezado}}
-					</h2>
-					@foreach($cuerpo as $mensaje)
+	<div class="modal-open">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">{{$encabezado}}</h4>
+      </div>
+      <div class="modal-body">
+        @foreach($cuerpo as $mensaje)
 						<p>{{$mensaje}}</p>
 					@endforeach
-					<p class="btn primary medium">
-						<a href="javascript: history.go(-1)">Regresar</a>
-					</p>
-				</div>
-			</div>
-		</div>
-	</div>
+      </div>
+      <div class="modal-footer">
+			
+		<a class="btn btn-primary" href="javascript: history.go(-1)">Regresar</a>
+
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->				
 @stop

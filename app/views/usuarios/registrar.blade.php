@@ -9,10 +9,12 @@
 				Form::open(array('url'=>'registrar','class'=>'form-signin'))
 
 			}}
-
+				<h2 class="form-signin-heading">
+          		<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+          		APPAS REGISTRO
+        		</h2>
 		
 				
-				<label for="inputEmail" class="sr-only">Nombre</label>
 				{{
 					Form::text('nombre',null,array('placeholder'=>'Ingrese su nombre','class'=>'form-control','maxlength'=>50,'required'=>'true'));
 				}}
@@ -35,7 +37,7 @@
 				}}
 			
 				{{
-					Form::submit('Registrate !');
+					Form::submit('Registrar!',array('class'=>'btn btn-lg btn-primary btn-block'));
 				}}
 				
 

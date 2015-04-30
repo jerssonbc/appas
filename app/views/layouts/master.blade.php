@@ -28,7 +28,6 @@
 		
 	
 	
-
 	@yield('modulo')
 
 
