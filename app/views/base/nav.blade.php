@@ -16,6 +16,13 @@
             @else
               <li>
               <!-- Menu para sali-->
+              <a href="{{url('empresas')}}">
+                <span>Empresa</span>
+                
+              </a>
+              </li>
+              <li>
+              <!-- Menu para sali-->
               <a href="{{url('/salir')}}">
                 <span>Salir</span>
                 

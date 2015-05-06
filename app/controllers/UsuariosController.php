@@ -107,8 +107,9 @@
 		}
 		function principal()
 		{
-			$this->layout->notificacion="Bienvenido al sistema: ".Session::get('nombre_completo');
-			$this->layout->modulo=View::make('usuarios.principal');
+			//$this->index->notificacion="Bienvenido al sistema: ".Session::get('nombre_completo');
+			//$this->index->modulo=View::make('empresas.index');
+			return Redirect::to('empresas');
 		}
 		function mostrar_mensajes($encabezado,$mensajes){
 			if(!is_array($mensajes)){

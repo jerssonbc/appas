@@ -26,7 +26,10 @@ Route::get('salir','UsuariosController@cerrarsesion');
 
 Route::post('registrar','UsuariosController@registrar_user');
 Route::post('autenticar','UsuariosController@autenticar');
-Route::get('empresa','EmpresasController@Index');
+Route::get('empresaNuevo','EmpresasController@Nuevo');
+Route::get('empresaIndex','EmpresasController@Index');
+Route::get('Administrar','EmpresasController@Administrar');
+Route::get('empresas','EmpresasController@Listar');
 Route::get('estrategia','EstrategiaController@Index');
 
 Route::post('registrarEmpresa','EmpresasController@save');

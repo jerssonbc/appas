@@ -1,4 +1,4 @@
-@section('modulo')
+@section('inicio')
 			<div class="container">
 			{{
 				Form::open(array('url'=>'registrar','class'=>'form-signin'))

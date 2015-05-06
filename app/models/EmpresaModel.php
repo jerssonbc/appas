@@ -5,6 +5,8 @@
 
 		protected $table = 'tbla_empresa';
 
+		protected $fillable = array('usuario_id','razon_social', 'giro_negocio', 'resena_historica');
+
 		// function __construct()
 		// {
 		// 	# code...

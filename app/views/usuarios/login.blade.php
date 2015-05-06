@@ -1,4 +1,4 @@
-@section('modulo')
+@section('inicio')
 	<div class="container">
 				{{Form::open(array('url'=>'autenticar','class'=>'form-signin'))}}
 						<h2 class="form-signin-heading">
