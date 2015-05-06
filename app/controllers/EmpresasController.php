@@ -8,11 +8,26 @@
 		public function Index()
 		{
 			$empresas= EmpresaModel::all();
+			return View::make('empresa.Index')->with('empresas',$empresas);
+		}
+		public function Nuevo()
+		{
+			$empresas= EmpresaModel::all();
+			return View::make('empresa.new')->with('empresas',$empresas);
+		}
+		public function Administrar()
+		{
 			return View::make('empresa.index');
 		}
 		public function Create()
 		{
 			return View::make('empresa.new');
+		}
+
+		public function Mostrar($id)
+		{
+			$Empresa = EmpresaModel::find($id);
+			return View::make('Empresa.mostrar')->with('Empresa',$Empresa);
 		}
 
 		public function Save()
@@ -36,8 +51,18 @@
 			}else{
 				$empresa->save();
 				$this->layout->notificacion='Registro Exitoso';
-				return Redirect::to('login');
+				return Redirect::to('empresas');
 			}
+		}
+		public function Listar()
+		{
+			$empresas= EmpresaModel::where('usuario_id',Session::get('id_usuario'))->get();
+			if (is_null($empresas))
+			{
+				App::abort(404);
+			}
+
+			return View::make('empresas.index',array('empresas' => $empresas));
 		}
 	}
  ?>

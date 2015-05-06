@@ -13,23 +13,22 @@
 	@include("base.nav")
 	
 	<div class="row">
-		<div class="well"> {{ @$notificacion }}</div>		
+		<!--<div class="well"> {{ @$notificacion }}</div>-->		
 	</div>
 	
-	@if(!Session::get('id_usuario'))
-		@yield('inicio')
-    @else
+	@if(Session::get('id_usuario'))
+		
+    
     	<div class="container-fluid">
       		<div class="row">
 	        <!-- Sidebar -->
-	        @include("base.sidebar")
 	        <!-- End Sidebar -->
-	        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+	        <div class="col-sm-9 col-sm-3 col-md-10 col-md-offset-2 main">
 	          <h1 class="page-header">AUDITORIA DE SISTEMAS</h1>
 	          
-	          <div class="table-responsive">
+	          <div >
 	            <!-- Table -->
-	            @yield('modulo')
+	            @yield('lista')
 	            <!-- End Table -->
 	          </div>
 	        </div>
