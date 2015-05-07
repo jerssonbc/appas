@@ -19,7 +19,7 @@
                 <td>{{ $empresas->razon_social }}</td>
                 <td>{{ $empresas->giro_negocio }}</td>
                 <td>
-                    <a href="{{url('/Administrar')}}">Editar</a>
+                    <a href="{{url('/Administrar',$empresas->id )}}">Editar</a>
                     <a href="#">Eliminar</a>
                 </td>
             </tr>

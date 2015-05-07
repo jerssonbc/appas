@@ -1,7 +1,7 @@
 <div class="col-sm-3 col-md-2 sidebar">
     <ul class="nav nav-sidebar">
         <li class="{{ Request::is('Empresa*') ? 'active' : '' }}">
-        	<a href="{{ url('/empresaIndex')}}">Datos de Empresa</a>
+        	<a href="{{url('/Administrar',Session::get('id_empresa') )}}">Datos de Empresa</a>
         </li>
         <li class="{{ Request::is('categoria*') ? 'active' : '' }}">
         	<a href="{{ url('/estrategia')}}">Direccionamiento Estratégico</a>

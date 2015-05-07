@@ -95,3 +95,10 @@ Route::filter('validar',function(){
 		return Redirect::to('login');
 	}
 });
+
+Route::filter('sesionactiva',function(){
+ $id_usuario=Session::get('id_usuario');
+ if ($id_usuario) {
+  return Redirect::to('empresas');
+ }
+});
