@@ -26,10 +26,7 @@ class CrearTablaTblaEstado extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('tbla_estado', function(Blueprint $table)
-		{
-			//
-		});
+		Schema::drop('tbla_estado');
 	}
 
 }

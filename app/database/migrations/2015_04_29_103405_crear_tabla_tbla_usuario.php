@@ -21,6 +21,7 @@ class CrearTablaTblaUsuario extends Migration {
 			$table->string('password',32);
 			$table->unsignedInteger('estado_id');
 			$table->foreign('estado_id')->references('id')->on('tbla_estado');
+			$table->boolean('estado')->nullable();
 			$table->timestamps();
 		});
 	}
@@ -32,10 +33,8 @@ class CrearTablaTblaUsuario extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('tbla_usuario', function(Blueprint $table)
-		{
-			//
-		});
+		Schema::drop('tbla_usuario');
+		
 	}
 
 }

@@ -19,6 +19,8 @@ class CrearTablaTblaPlanauditoria extends Migration {
 			$table->string('titulo_auditoria',200);
 			$table->unsignedInteger('empresa_id');
 			$table->foreign('empresa_id')->references('id')->on('tbla_empresa');
+			$table->text('objetivo_general');
+			$table->boolean('estado')->nullable();
 		});
 	}
 
@@ -29,10 +31,7 @@ class CrearTablaTblaPlanauditoria extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('tbla_planauditoria', function(Blueprint $table)
-		{
-			//
-		});
+		Schema::drop('tbla_planauditoria');
 	}
 
 }

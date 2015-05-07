@@ -29,10 +29,7 @@ class CrearTablaTblaDireccionamientoestrategico extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('tbla_direccionamientoestrategico', function(Blueprint $table)
-		{
-			//
-		});
+		Schema::drop('tbla_direccionamientoestrategico');
 	}
 
 }

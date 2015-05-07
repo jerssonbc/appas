@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CrearTablaTblaEstrategia extends Migration {
+class CrearTablaTblaEquipoAuditoria extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,14 +12,14 @@ class CrearTablaTblaEstrategia extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('tbla_estrategia', function(Blueprint $table)
+		Schema::create('tbla_equipo_auditoria', function(Blueprint $table)
 		{
+			//
 			$table->increments('id');
-			$table->string('titulo',100);
-			$table->text('estrategia');
-			$table->unsignedInteger('empresa_id');
-			$table->foreign('empresa_id')->references('id')->on('tbla_empresa');
+			$table->unsignedInteger('planauditoria_id');
+			$table->foreign('planauditoria_id')->references('id')->on('tbla_planauditoria');
 			$table->boolean('estado')->nullable();
+
 		});
 	}
 
@@ -30,7 +30,7 @@ class CrearTablaTblaEstrategia extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('tbla_estrategia');
+		Schema::drop('tbla_equipo_auditoria');
 	}
 
 }
