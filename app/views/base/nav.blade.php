@@ -17,14 +17,14 @@
               <li>
               <!-- Menu para sali-->
               <a href="{{url('empresas')}}">
-                <span>Empresa</span>
+                <span class="glyphicon glyphicon-equalizer" aria-hidden="true"></span><span>Empresa</span>
                 
               </a>
               </li>
               <li>
               <!-- Menu para sali-->
               <a href="{{url('/salir')}}">
-                <span>Salir</span>
+                <span class="glyphicon glyphicon-share" aria-hidden="true"></span><span>Salir</span>
                 
               </a>
               </li>
