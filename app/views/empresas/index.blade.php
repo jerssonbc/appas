@@ -1,6 +1,12 @@
 
 @extends("layouts.index")
 
+@section("titulo")
+<h1 class="page-header">MIS EMPRESAS</h1>
+
+@stop
+
+
 @section("lista")
 
 

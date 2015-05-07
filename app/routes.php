@@ -32,23 +32,29 @@ Route::get('salir','UsuariosController@cerrarsesion');
 Route::group(array('before'=>'validar'),function(){
 	
 	Route::get('empresaNuevo','EmpresasController@Nuevo');
+	Route::get('planAuditoriaNuevo','PlanAuditoriaController@Nuevo');
 	Route::get('estrategiasNuevo','EstrategiasController@Nuevo');
 	Route::get('empresaIndex','EmpresasController@Index');
 	Route::get('empresaEdit','EmpresasController@Edit');
+	Route::get('planAuditoriaEdit','PlanAuditoriaController@Edit');
 	Route::get('direccionamientoEdit','DireccionamientoController@Edit');
 	Route::get('estrategiasEdit/{id}','EstrategiasController@Edit');
 	Route::get('estrategiasDelete/{id}','EstrategiasController@Delete');
 	Route::post('estrategiasUpdate/{id}','EstrategiasController@Update');
 	Route::post('empresaUpdate','EmpresasController@Update');
+	Route::post('planAuditoriaUpdate','PlanAuditoriaController@Update');
 	Route::post('direccionamientoUpdate','DireccionamientoController@Update');
 	Route::get('Administrar/{id}','EmpresasController@Administrar');
+	Route::get('AdministrarPlan/{id}','PlanAuditoriaController@Administrar');
 	Route::get('empresas','EmpresasController@Listar');
+	Route::get('planAuditoria','PlanAuditoriaController@Listar');
 	Route::get('estrategiasListar','EstrategiasController@Listar');
 	Route::get('direccionamientoNuevo','DireccionamientoController@Create');
 	Route::get('direccionamiento','DireccionamientoController@index');
 
 });
 
+	Route::post('registrarPlanAuditoria','PlanAuditoriaController@save');
 	Route::post('registrarEmpresa','EmpresasController@save');
 	Route::post('registrarEstrategias','EstrategiasController@save');
 	Route::post('registrarDireccionamiento','DireccionamientoController@save');
