@@ -10,25 +10,27 @@
 
 </head>
 <body>
-	@include("base.nav")
+	@include("base.navPlan")
 	
 	<div class="row">
-		<!--<div class="well"> {{ @$notificacion }}</div>-->		
+		<div class="well"> {{ @$notificacion }}</div>		
 	</div>
 	
-	@if(Session::get('id_usuario'))
-		
-    
+	@if(!Session::get('id_usuario'))
+		@yield('inicio')
+		@yield('modulo')
+    @else
     	<div class="container-fluid">
       		<div class="row">
 	        <!-- Sidebar -->
+	        @include("base.sidebarPlan")
 	        <!-- End Sidebar -->
-	        <div class="col-sm-9 col-sm-3 col-md-10 col-md-offset-2 main">
-	          @yield('titulo')
+	        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+	          <h1 class="page-header">PLAN AUDITORIA</h1>
 	          
-	          <div >
+	          
 	            <!-- Table -->
-	            @yield('lista')
+	            @yield('modulo')
 	            <!-- End Table -->
 	          </div>
 	        </div>
