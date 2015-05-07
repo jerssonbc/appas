@@ -18,6 +18,7 @@
 	
 	@if(!Session::get('id_usuario'))
 		@yield('inicio')
+		@yield('modulo')
     @else
     	<div class="container-fluid">
       		<div class="row">

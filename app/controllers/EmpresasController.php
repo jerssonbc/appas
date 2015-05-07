@@ -15,9 +15,13 @@
 			$empresas= EmpresaModel::all();
 			return View::make('empresa.new')->with('empresas',$empresas);
 		}
-		public function Administrar()
+		public function Administrar($id)
 		{
-			return View::make('empresa.index');
+			
+			Session::put('id_empresa',$id);
+
+			$datos= EmpresaModel::find($id);
+			return View::make('empresa.index')->with('datos', $datos);
 		}
 		public function Create()
 		{
@@ -28,6 +32,19 @@
 		{
 			$Empresa = EmpresaModel::find($id);
 			return View::make('Empresa.mostrar')->with('Empresa',$Empresa);
+		}
+		public function Edit()
+		{
+			$empresa = EmpresaModel::find(Session::get('id_empresa'));
+			
+			return View::make('empresa.edit')->with('empresa',$empresa);
+		}
+		public function Update()
+		{
+			$datos = EmpresaModel::find(Session::get('id_empresa'));
+			$datos->fill(Input::all());
+			$datos->save();
+			return View::make('empresa.index',array('datos' => $datos));
 		}
 
 		public function Save()
