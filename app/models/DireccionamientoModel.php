@@ -1,26 +1,25 @@
 <?php
-	class EstrategiasModel extends Eloquent
+	class DireccionamientoModel extends Eloquent
 	{
 		public $timestamps = false;
 
-		protected $table = 'tbla_estrategia';
+		protected $table = 'tbla_direccionamientoestrategico';
 
-		protected $fillable = array('titulo', 'estrategia', 'empresa_id');
+		protected $fillable = array('mision', 'vision');
 
 		// function __construct()
 		// {
 		// 	# code...
 		// }
 		private $regla=array(
-			'titulo'     => 'required',
-			'estrategia'    => 'required',
-			'empresa_id' => 'required'
+
+			'mision'     => 'required',
+			'vision'    => 'required'
 			);
 		private $mensajes=array(
 
-			'titulo.required'   =>'titulo Requirido',
-			'estrategia.required'   =>'estrategia Requirido',
-			'empresa_id.required'   =>'empresa Requirido'	
+			'mision.required'   =>'Mision Requirido',
+			'vision.required'   =>'Mision historica Requirido'	
 			);
 		private $errores;
 		function validador($data){
