@@ -19,8 +19,8 @@
                 <td>{{ $empresas->razon_social }}</td>
                 <td>{{ $empresas->giro_negocio }}</td>
                 <td>
-                    <a href="{{url('/Administrar',$empresas->id )}}">Editar</a>
-                    <a href="#">Eliminar</a>
+                    <a class = "btn btn-info" href="{{url('/Administrar',$empresas->id )}}">Editar</a>
+                    <a class = "btn btn-danger" href="#">Eliminar</a>
                 </td>
             </tr>
             @endforeach
