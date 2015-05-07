@@ -98,7 +98,7 @@ Route::filter('validar',function(){
 
 Route::filter('sesionactiva',function(){
 	$id_usuario=Session::get('id_usuario');
- if ($id_usuario) {
-  	return Redirect::to('empresas');
- }
+	 if ($id_usuario) {
+	  	return Redirect::to('empresas');
+	 }
 });

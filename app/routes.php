@@ -28,6 +28,7 @@ Route::get('principal','UsuariosController@principal');
 Route::get('salir','UsuariosController@cerrarsesion');
 
 
+
 Route::group(array('before'=>'validar'),function(){
 	
 	Route::get('empresaNuevo','EmpresasController@Nuevo');
