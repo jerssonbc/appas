@@ -20,8 +20,8 @@
             <a href="{{url('/planAuditoria')}}">
                 <span class="glyphicon glyphicon-book" aria-hidden="true"></span>Normativa Institucional</a></li>
 
-        <li>
-            <a href="#">
+        <li class="{{ Request::is('perfilEquipo*') ? 'active' : '' }}">
+            <a href="{{url('/perfilEquipo')}}">
                 <span class="glyphicon glyphicon-user" aria-hidden="true"></span>Perfil de Equipo de Auditoria</a></li>
 
         <li>

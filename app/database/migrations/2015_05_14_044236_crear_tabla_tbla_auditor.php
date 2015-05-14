@@ -25,6 +25,7 @@ class CrearTablaTblaAuditor extends Migration {
 			$table->unsignedInteger('planauditoria_id');
 			$table->foreign('planauditoria_id')->references('id')->on('tbla_planauditoria');
 			$table->unsignedInteger('perfilequipo_id');
+			
 			$table->foreign('perfilequipo_id')->references('id')->on('tbla_perfilequipo');
 			$table->boolean('estado')->nullable();
 		});

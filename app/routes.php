@@ -75,7 +75,9 @@ Route::group(array('before'=>'validar'),function(){
 	
 	Route::get('objetivosListar','ObjetivosController@Listar');
 
-	//Route::get('perfilEquipo', )
+	Route::get('perfilEquipo','PerfilEquipoController@listarPefil');
+	Route::get('nuevoRolPerfil','PerfilEquipoController@nuevoRol');
+	Route::get('nuevoPerfilRol','PerfilEquipoController@nuevoPerfil');
 
 });
 
@@ -88,6 +90,8 @@ Route::group(array('before'=>'validar'),function(){
 
 	Route::post('registrarEstrategias','EstrategiasController@save');
 	Route::post('registrarDireccionamiento','DireccionamientoController@save');
+
+	Route::post('registrarRol','PerfilEquipoController@guardarRol');
 
 
 Route::post('registrar','UsuariosController@registrar_user');

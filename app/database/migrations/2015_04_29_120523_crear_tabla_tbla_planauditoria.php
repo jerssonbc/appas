@@ -22,7 +22,7 @@ class CrearTablaTblaPlanauditoria extends Migration {
 			$table->text('objetivo_general');
 			$table->boolean('estado')->nullable();
 			$table->text('alcance')->nullable();
-			$table->boolean('alineamiento_negocio')->nullable();
+			$table->text('alineamiento_negocio')->nullable();
 		});
 	}
 
