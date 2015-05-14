@@ -1,5 +1,5 @@
 
-@extends("layouts.master")
+@extends("layouts.plan")
 
 @section("modulo")
 
@@ -9,7 +9,7 @@
     <thead>
         <tr>
             <th>Nombre</th>
-            <th>Cargo</th>
+            <th>Apellidos</th>
             <th>Acciones</th>
         </tr>
         </thead>
@@ -27,6 +27,6 @@
         </tbody>
 </table>
 
-<a href="#" class="btn btn-primary">Nueva empresa</a>
+<a href="#" class="btn btn-primary">Nuevo equipo</a>
 
 @stop

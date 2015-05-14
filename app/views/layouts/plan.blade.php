@@ -7,6 +7,7 @@
 	{{HTML::style('css/dashboard.css')}}
 	{{HTML::style('css/signin.css') }}
 	{{HTML::script('js/ie-emulation-modes-warning.js')}}
+	{{HTML::script('js/jquery.min.js')}}
 
 </head>
 <body>
