@@ -21,6 +21,10 @@
 			Session::put('id_empresa',$id);
 
 			$datos= EmpresaModel::find($id);
+			if (is_null($datos))
+			{
+				return Redirect::to('empresas');
+			}
 			return View::make('empresa.index')->with('datos', $datos);
 		}
 		public function Create()

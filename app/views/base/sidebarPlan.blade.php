@@ -16,9 +16,15 @@
         <!--<li>
             <a href="#">
             <span class="glyphicon glyphicon-list" aria-hidden="true"></span>Marco Normativo</a></li>
-        --><li class="{{ Request::is('planAuditoria*') ? 'active' : '' }}">
-            <a href="{{url('/planAuditoria')}}">
-                <span class="glyphicon glyphicon-book" aria-hidden="true"></span>Normativa Institucional</a></li>
+    --><li class="{{ Request::is('limitacionesListar*') ? 'active' : '' }}">
+            <a href="{{url('/limitacionesListar')}}">
+                <span class="glyphicon glyphicon-book" aria-hidden="true"></span>Limitaciones</a>
+
+        </li>
+        <li class="{{ Request::is('aclaracionesListar*') ? 'active' : '' }}">
+            <a href="{{ url('/aclaracionesListar')}}">
+                <span class="glyphicon glyphicon-indent-left" aria-hidden="true"></span>Aclaraciones</a>
+        </li>
 
         <li>
             <a href="#">

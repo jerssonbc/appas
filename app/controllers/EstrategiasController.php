@@ -33,6 +33,10 @@
 		public function Edit($id)
 		{
 			$estrategias = EstrategiasModel::find($id);
+			if (is_null($estrategias))
+			{
+				return Redirect::to('estrategiasListar');
+			}
 			
 			return View::make('estrategias.edit')->with('estrategias',$estrategias);
 		}

@@ -27,6 +27,22 @@
   <div class="panel-body">
     {{ $datos->objetivo_general }}
   </div>
+</div>
+<div class="panel panel-success">
+  <div class="panel-heading">
+    <h3 class="panel-title">Alcance: </h3>
+  </div>
+  <div class="panel-body">
+    {{ $datos->alcance }}
+  </div>
+</div>
+<div class="panel panel-success">
+  <div class="panel-heading">
+    <h3 class="panel-title">Alineamiento_negocio: </h3>
+  </div>
+  <div class="panel-body">
+    {{ $datos->alineamiento_negocio }}
+  </div>
 </div>  
 
 <div class="form-group">
