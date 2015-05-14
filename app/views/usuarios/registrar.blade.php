@@ -35,6 +35,9 @@
 					Form::submit('Registrar!',array('class'=>'btn btn-lg btn-primary btn-block'));
 				}}
 				
+				<a class="btn btn-success" href="{{url('/login')}}">Login!
+								</a>
+							
 
 			
 				{{

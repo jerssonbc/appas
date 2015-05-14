@@ -33,6 +33,7 @@
 			}else{
 				$usuarios->save();
 				$this->layout->notificacion='Registro Exitoso';
+				$this->login();
 			}
 
 		}

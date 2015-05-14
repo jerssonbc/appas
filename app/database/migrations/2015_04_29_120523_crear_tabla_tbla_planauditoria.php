@@ -21,6 +21,8 @@ class CrearTablaTblaPlanauditoria extends Migration {
 			$table->foreign('empresa_id')->references('id')->on('tbla_empresa');
 			$table->text('objetivo_general');
 			$table->boolean('estado')->nullable();
+			$table->text('alcance')->nullable();
+			$table->boolean('alineamiento_negocio')->nullable();
 		});
 	}
 

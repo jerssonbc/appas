@@ -18,6 +18,11 @@
         --><li class="{{ Request::is('Plan*') ? 'active' : '' }}">
             <a href="{{url('/planAuditoria')}}">
                 <span class="glyphicon glyphicon-book" aria-hidden="true"></span>Normativa Institucional</a></li>
+
+        <li>
+            <a href="#">
+                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>Cargos</a></li>
+
         <li>
             <a href="#">
                 <span class="glyphicon glyphicon-user" aria-hidden="true"></span>Equipo Auditor</a></li>
