@@ -32,6 +32,10 @@
 		public function Edit($id)
 		{
 			$aclaraciones = AclaracionesModel::find($id);
+			if (is_null($aclaraciones))
+			{
+				return Redirect::to('aclaracionesListar');
+			}
 			$tipoAclaraciones = TipoAclaracionesModel::all()->lists('tipo_aclaracion','id');
 			return View::make('aclaraciones.edit',compact('tipoAclaraciones','aclaraciones'));
 		}

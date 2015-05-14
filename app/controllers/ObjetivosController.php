@@ -18,6 +18,10 @@
 		public function Edit($id)
 		{
 			$objetivos = ObjetivosModel::find($id);
+			if (is_null($objetivos))
+			{
+				return Redirect::to('objetivosListar');
+			}
 			
 			return View::make('objetivos_especificos.edit')->with('objetivos',$objetivos);
 		}

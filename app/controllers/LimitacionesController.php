@@ -33,6 +33,10 @@
 		{
 			$limitaciones = LimitacionesModel::find($id);
 			
+			if (is_null($limitaciones))
+			{
+				return Redirect::to('limitacionesListar');
+			}
 			return View::make('limitaciones.edit')->with('limitaciones',$limitaciones);
 		}
 		public function Update($id)

@@ -20,7 +20,12 @@
 			
 			Session::put('id_plan',$id);
 
+
 			$datos= PlanAuditoriaModel::find($id);
+			if (is_null($datos))
+			{
+				return Redirect::to('planAuditoria');
+			}
 			return View::make('planAuditoria.mostrar')->with('datos', $datos);
 		}
 		public function Create()
