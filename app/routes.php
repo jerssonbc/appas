@@ -75,6 +75,7 @@ Route::group(array('before'=>'validar'),function(){
 	
 	Route::get('objetivosListar','ObjetivosController@Listar');
 
+	//Route::get('perfilEquipo', )
 
 });
 

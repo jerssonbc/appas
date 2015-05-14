@@ -22,7 +22,7 @@
 
         <li>
             <a href="#">
-                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>Cargos</a></li>
+                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>Perfil de Equipo de Auditoria</a></li>
 
         <li>
             <a href="#">
