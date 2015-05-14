@@ -31,31 +31,60 @@ Route::get('salir','UsuariosController@cerrarsesion');
 
 Route::group(array('before'=>'validar'),function(){
 	
+	
 	Route::get('empresaNuevo','EmpresasController@Nuevo');
-	Route::get('planAuditoriaNuevo','PlanAuditoriaController@Nuevo');
-	Route::get('estrategiasNuevo','EstrategiasController@Nuevo');
 	Route::get('empresaIndex','EmpresasController@Index');
 	Route::get('empresaEdit','EmpresasController@Edit');
+	Route::post('empresaUpdate','EmpresasController@Update');
+	Route::get('Administrar/{id}','EmpresasController@Administrar');
+	Route::get('empresas','EmpresasController@Listar');
+
+
+	Route::get('planAuditoriaNuevo','PlanAuditoriaController@Nuevo');
 	Route::get('planAuditoriaEdit','PlanAuditoriaController@Edit');
-	Route::get('direccionamientoEdit','DireccionamientoController@Edit');
+	Route::post('planAuditoriaUpdate','PlanAuditoriaController@Update');
+	Route::get('AdministrarPlan/{id}','PlanAuditoriaController@Administrar');
+	Route::get('planAuditoria','PlanAuditoriaController@Listar');
+
+
+	Route::get('estrategiasNuevo','EstrategiasController@Nuevo');
 	Route::get('estrategiasEdit/{id}','EstrategiasController@Edit');
 	Route::get('estrategiasDelete/{id}','EstrategiasController@Delete');
 	Route::post('estrategiasUpdate/{id}','EstrategiasController@Update');
-	Route::post('empresaUpdate','EmpresasController@Update');
-	Route::post('planAuditoriaUpdate','PlanAuditoriaController@Update');
-	Route::post('direccionamientoUpdate','DireccionamientoController@Update');
-	Route::get('Administrar/{id}','EmpresasController@Administrar');
-	Route::get('AdministrarPlan/{id}','PlanAuditoriaController@Administrar');
-	Route::get('empresas','EmpresasController@Listar');
-	Route::get('planAuditoria','PlanAuditoriaController@Listar');
 	Route::get('estrategiasListar','EstrategiasController@Listar');
+
+
+	Route::get('MInternacionalNuevo','MarcosController@MINuevo');
+	Route::get('MNacionalNuevo','MarcosController@MNNuevo');
+	Route::get('NInstitucionalNuevo','MarcosController@NINuevo');
+	Route::get('institucionalEdit/{id}','MarcosController@NIEdit');
+	Route::get('nacionalEdit/{id}','MarcosController@MNEdit');
+	Route::get('internacionalEdit/{id}','MarcosController@MIEdit');
+	Route::post('institucionalUpdate/{id}','MarcosController@NIUpdate');
+	Route::post('internacionalUpdate/{id}','MarcosController@MIUpdate');
+	Route::post('nacionalUpdate/{id}','MarcosController@MNUpdate');
+	Route::get('marcosListar','MarcosController@Listar');
+	
+	
+	Route::get('direccionamientoEdit','DireccionamientoController@Edit');
+	Route::post('direccionamientoUpdate','DireccionamientoController@Update');
 	Route::get('direccionamientoNuevo','DireccionamientoController@Create');
 	Route::get('direccionamiento','DireccionamientoController@index');
+	
+	
+	
+	Route::get('objetivosListar','ObjetivosController@Listar');
+
 
 });
 
 	Route::post('registrarPlanAuditoria','PlanAuditoriaController@save');
+	Route::post('registrarMInternacional','MarcosController@MIsave');
+	Route::post('registrarMNacional','MarcosController@MNsave');
+	Route::post('registrarNInstitucional','MarcosController@NIsave');
 	Route::post('registrarEmpresa','EmpresasController@save');
+	Route::post('registrarObjetivo','ObjetivosController@save');
+
 	Route::post('registrarEstrategias','EstrategiasController@save');
 	Route::post('registrarDireccionamiento','DireccionamientoController@save');
 
