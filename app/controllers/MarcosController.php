@@ -24,19 +24,30 @@
 		public function MIEdit($id)
 		{
 			$internacional = MInternacionalModel::find($id);
+
+			if (is_null($internacional))
+			{
+				return Redirect::to('marcosListar');
+			}
 			
 			return View::make('marcos.miedit')->with('internacional',$internacional);
 		}
 		public function MNEdit($id)
 		{
 			$nacional = MNacionalModel::find($id);
-			
+			if (is_null($nacional))
+			{
+				return Redirect::to('marcosListar');
+			}
 			return View::make('marcos.mnedit')->with('nacional',$nacional);
 		}
 		public function NIEdit($id)
 		{
 			$institucional = NInstitucionalModel::find($id);
-			
+			if (is_null($institucional))
+			{
+				return Redirect::to('marcosListar');
+			}
 			return View::make('marcos.niedit')->with('institucional',$institucional);
 		}
 		public function MIUpdate($id)

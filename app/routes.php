@@ -53,6 +53,18 @@ Route::group(array('before'=>'validar'),function(){
 	Route::post('estrategiasUpdate/{id}','EstrategiasController@Update');
 	Route::get('estrategiasListar','EstrategiasController@Listar');
 
+	Route::get('limitacionesNuevo','LimitacionesController@Nuevo');
+	Route::get('limitacionesEdit/{id}','LimitacionesController@Edit');
+	Route::get('limitacionesDelete/{id}','LimitacionesController@Delete');
+	Route::post('limitacionesUpdate/{id}','LimitacionesController@Update');
+	Route::get('limitacionesListar','LimitacionesController@Listar');
+
+	Route::get('aclaracionesNuevo','AclaracionesController@Nuevo');
+	Route::get('aclaracionesEdit/{id}','AclaracionesController@Edit');
+	Route::get('aclaracionesDelete/{id}','AclaracionesController@Delete');
+	Route::post('aclaracionesUpdate/{id}','AclaracionesController@Update');
+	Route::get('aclaracionesListar','AclaracionesController@Listar');
+
 
 	Route::get('MInternacionalNuevo','MarcosController@MINuevo');
 	Route::get('MNacionalNuevo','MarcosController@MNNuevo');
@@ -74,6 +86,9 @@ Route::group(array('before'=>'validar'),function(){
 	
 	
 	Route::get('objetivosListar','ObjetivosController@Listar');
+	Route::get('objetivosEdit/{id}','ObjetivosController@Edit');
+	Route::get('objetivosDelete/{id}','ObjetivosController@Delete');
+	Route::post('objetivosUpdate/{id}','ObjetivosController@Update');
 
 	Route::get('perfilEquipo','PerfilEquipoController@listarPefil');
 	Route::get('nuevoRolPerfil','PerfilEquipoController@nuevoRol');
@@ -87,8 +102,10 @@ Route::group(array('before'=>'validar'),function(){
 	Route::post('registrarNInstitucional','MarcosController@NIsave');
 	Route::post('registrarEmpresa','EmpresasController@save');
 	Route::post('registrarObjetivo','ObjetivosController@save');
+	Route::post('registrarAclaraciones','AclaracionesController@save');
 
 	Route::post('registrarEstrategias','EstrategiasController@save');
+	Route::post('registrarLimitaciones','LimitacionesController@save');
 	Route::post('registrarDireccionamiento','DireccionamientoController@save');
 
 	Route::post('registrarRol','PerfilEquipoController@guardarRol');

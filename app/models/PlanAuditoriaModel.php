@@ -5,7 +5,7 @@
 
 		protected $table = 'tbla_planauditoria';
 
-		protected $fillable = array('realidad_problematica','titulo_auditoria', 'empresa_id', 'objetivo_general','estado');
+		protected $fillable = array('realidad_problematica','titulo_auditoria', 'empresa_id', 'objetivo_general','estado','alcance','alineamiento_negocio');
 
 		// function __construct()
 		// {
@@ -16,13 +16,17 @@
 			'titulo_auditoria'     => 'required',
 			'empresa_id'    => 'required',
 			'objetivo_general' => 'required',
-			'estado' => 'required'
+			'estado' => 'required',
+			'alcance' => 'required',
+			'alineamiento_negocio' => 'required'
 			);
 		private $mensajes=array(
 
 			'realidad_problematica.required'   =>'realidad_problematica Requirido',
 			'titulo_auditoria.required'   =>'titulo_auditoria Requirido',
-			'objetivo_general.required'   =>'objetivo_general Requirido'	
+			'objetivo_general.required'   =>'objetivo_general Requirido',
+			'alcance.required'   =>'alcance Requirido',
+			'alineamiento_negocio.required'   =>'alineamiento negocio Requirido'	
 			);
 		private $errores;
 		function validador($data){

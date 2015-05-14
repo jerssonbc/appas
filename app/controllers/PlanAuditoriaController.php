@@ -20,7 +20,12 @@
 			
 			Session::put('id_plan',$id);
 
+
 			$datos= PlanAuditoriaModel::find($id);
+			if (is_null($datos))
+			{
+				return Redirect::to('planAuditoria');
+			}
 			return View::make('planAuditoria.mostrar')->with('datos', $datos);
 		}
 		public function Create()
@@ -54,6 +59,8 @@
 			$planAuditoria->realidad_problematica	    =Input::get('realidad_problematica');
 			$planAuditoria->titulo_auditoria 		=Input::get('titulo_auditoria');
 			$planAuditoria->objetivo_general 	=Input::get('objetivo_general');
+			$planAuditoria->alcance 	=Input::get('alcance');
+			$planAuditoria->alineamiento_negocio 	=Input::get('alineamiento_negocio');
 			$planAuditoria->estado 	=1;
 
 			$data=array(
@@ -61,6 +68,8 @@
 				'realidad_problematica' 	=>Input::get('realidad_problematica'),
 				'titulo_auditoria'			=>Input::get('titulo_auditoria'),
 				'objetivo_general'		=>Input::get('objetivo_general'),
+				'alcance'		=>Input::get('alcance'),
+				'alineamiento_negocio'		=>Input::get('alineamiento_negocio'),
 				'estado'		=>1
 				);
 

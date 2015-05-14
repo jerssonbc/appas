@@ -15,19 +15,23 @@
 		}
 
 		
-		public function NIEdit($id)
+		public function Edit($id)
 		{
-			$institucional = NInstitucionalModel::find($id);
+			$objetivos = ObjetivosModel::find($id);
+			if (is_null($objetivos))
+			{
+				return Redirect::to('objetivosListar');
+			}
 			
-			return View::make('marcos.niedit')->with('institucional',$institucional);
+			return View::make('objetivos_especificos.edit')->with('objetivos',$objetivos);
 		}
 		
-		public function NIUpdate($id)
+		public function Update($id)
 		{
-			$institucional = NInstitucionalModel::find($id);
-			$institucional->fill(Input::all());
-			$institucional->save();
-			return Redirect::to('marcosListar');
+			$objetivos = ObjetivosModel::find($id);
+			$objetivos->fill(Input::all());
+			$objetivos->save();
+			return Redirect::to('objetivosListar');
 		}
 
 		
