@@ -39,3 +39,7 @@ body{
 .tamselect{
 	width: 100px;
 }
+
+.fdireccionamiento > textarea{
+	rows:'10';
+}
