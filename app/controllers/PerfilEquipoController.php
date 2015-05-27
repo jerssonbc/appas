@@ -14,7 +14,17 @@
 			
 			$roles=DB::table('tbla_perfilequipo')->where('planauditoria_id',Session::get('id_plan'))->get();
 			$numroles=DB::table('tbla_perfilequipo')->where('planauditoria_id',Session::get('id_plan'))->count();
-			return View::make('perfil.index',array('roles'=>$roles,'numroles'=>$numroles));
+
+			$roles2=DB::table('tbla_perfilequipo')->where('planauditoria_id',Session::get('id_plan'))->get();
+			$rolyperfil=array();
+			foreach ($roles2 as $rol2) {
+				$perfilDeRol=PerfilModel::where('perfilequipo_id','=',$rol2->id)->get();
+				$numperfiles=PerfilModel::where('perfilequipo_id','=',$rol2->id)->count();
+				$numperfiles=$numperfiles+1;
+				array_push($rolyperfil, array('rol' => $rol2,'perfil'=>$perfilDeRol,'numperfiles'=>$numperfiles));
+			}
+			return View::make('perfil.index',array('roles'=>$roles,'numroles'=>$numroles,
+								'rolyperfiles'=>$rolyperfil));
 		}
 		function nuevoRol(){
 			$cargos=DB::table('tbla_cargo')->orderBy('cargo')->lists('cargo','id');
@@ -28,11 +38,10 @@
 		function guardarRol(){
 			$perfilEquipo=new PerfilEquipoModel;
 			$perfilEquipo->planauditoria_id =Session::get('id_plan');
-			$perfilEquipo->cargo_id=Input::get('cargo');
+			//$perfilEquipo->cargo_id=Input::get('cargo');
 			$perfilEquipo->rol=Input::get('rol');
 			$data=array(
 				'planauditoria_id'=>Session::get('id_plan'),
-				'cargo_id'=>Input::get('cargo'),
 				'rol'=>Input::get('rol')
 				);
 
@@ -42,9 +51,18 @@
 			}else{
 				$perfilEquipo->save();
 				$this->layout->notificacion='Registro Exitoso';
-				return Redirect::to('marcosListar');
+				return Redirect::to('perfilEquipo');
 			}
 
+		}
+		function editarRol(){
+			if (Request::ajax()) {
+				$perfilEquipo=PerfilEquipoModel::find(Input::get('id'));
+				$perfilEquipo->rol=Input::get('rol');
+				$perfilEquipo->save();
+				return "OK";
+			}
+			
 		}
 	}
  ?>

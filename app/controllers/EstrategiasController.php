@@ -13,7 +13,7 @@
 		public function Nuevo()
 		{
 			$estrategias= EstrategiasModel::all();
-			return View::make('estrategias.new')->with('estrategias',$estrategias);
+			return View::make('estrategias.new');
 		}
 		public function Administrar($id)
 		{
