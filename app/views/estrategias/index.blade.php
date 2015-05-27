@@ -3,8 +3,8 @@
 
 @section("modulo")
 
-
 <br><br>
+
 <a href="{{url('/estrategiasNuevo')}}" class="btn btn-primary">Nueva Estrategia</a>
 
 <table class="table table-striped">

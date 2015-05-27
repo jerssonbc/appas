@@ -6,6 +6,7 @@
 	{{HTML::style('css/bootstrap.min.css')}}
 	{{HTML::style('css/dashboard.css')}}
 	{{HTML::style('css/signin.css') }}
+	{{HTML::style('css/estiloappas.css') }}
 	{{HTML::script('js/ie-emulation-modes-warning.js')}}
 
 </head>
@@ -43,7 +44,7 @@
 
 
 	{{ HTML::script('js/ie10-viewport-bug-workaround.js') }}
-
+	{{HTML::script('js/appas.js')}}
 	@include("base.scripts")
 
 

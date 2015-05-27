@@ -32,9 +32,9 @@ $(document).ready(function()
 {{ Form::open(array('url'=>'registrarObjetivo','method'=>'POST','class'=>'form-horizontal')) }}
 
 <div class="form-group @if($errors->get('descripcion')) {{'has-error'}} @endif ">
-    <label class="col-sm-2 control-label">descripcion</label>
+    <label class="col-sm-2 control-label">Descripcion:</label>
     <div class="col-sm-7">
-        {{ Form::text('descripcion',null,array('class'=>'form-control','placeholder'=>'ingrese Titulo')) }}
+        {{ Form::text('descripcion',null,array('class'=>'form-control','placeholder'=>'Ingrese Objetivo')) }}
     </div>
 </div>
 <div class="form-group">
@@ -43,6 +43,7 @@ $(document).ready(function()
               <a href="{{url('/empresas')}}" class="btn btn-primary">Cancelar</a>
             </div>
 </div>
+{{Form::close()}}
 <br><br>
 <div id="cuerpo">
     <table class="table table-striped">

@@ -41,6 +41,7 @@
 
 
 	{{ HTML::script('js/ie10-viewport-bug-workaround.js') }}
+	{{HTML::script('js/appas.js')}}
 
 	@include("base.scripts")
 

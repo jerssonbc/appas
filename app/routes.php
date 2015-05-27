@@ -94,6 +94,9 @@ Route::group(array('before'=>'validar'),function(){
 	Route::get('nuevoRolPerfil','PerfilEquipoController@nuevoRol');
 	Route::get('nuevoPerfilRol','PerfilEquipoController@nuevoPerfil');
 
+	Route::get('editarPerfil/{id}','PerfilController@editarPerfil');
+	Route::post('actualizarPerfil/{id}','PerfilController@actualizarPerfil');
+
 });
 
 	Route::post('registrarPlanAuditoria','PlanAuditoriaController@save');
@@ -109,6 +112,12 @@ Route::group(array('before'=>'validar'),function(){
 	Route::post('registrarDireccionamiento','DireccionamientoController@save');
 
 	Route::post('registrarRol','PerfilEquipoController@guardarRol');
+	Route::post('editarRol','PerfilEquipoController@editarRol');
+
+
+	
+	Route::post('registrarPerfil','PerfilController@guardarPerfil');
+	
 
 
 Route::post('registrar','UsuariosController@registrar_user');

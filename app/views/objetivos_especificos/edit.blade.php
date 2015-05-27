@@ -5,7 +5,7 @@
 {{ Form::model($objetivos,array('url'=>'objetivosUpdate/' . $objetivos->id ,'method'=>'POST','class'=>'form-horizontal') ) }}
 
 <div class="form-group @if($errors->get('descripcion')) {{'has-error'}} @endif ">
-    <label class="col-sm-2 control-label">Objetivos Especificos</label>
+    <label class="col-sm-2 control-label">Objetivo Especifico:</label>
     <div class="col-sm-7">
         {{ Form::textarea('descripcion',null,array('class'=>'form-control','placeholder'=>'ingrese objetivo')) }}
     </div>
