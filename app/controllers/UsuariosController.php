@@ -28,7 +28,8 @@
 				);
 
 			if (!$usuarios->validador($data)) {
-				$this->layout->modulo=View::make('mensaje',array('encabezado' => 'Advertencia:',
+				$this->layout->modulo=View::make('mensaje',
+					array('encabezado' => '.: Advertencia :.',
 					'cuerpo' =>$usuarios->mostrar_errores()));
 			}else{
 				$usuarios->save();
