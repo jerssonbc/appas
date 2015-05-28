@@ -6,6 +6,7 @@
 	{{HTML::style('css/bootstrap.min.css')}}
 	{{HTML::style('css/dashboard.css')}}
 	{{HTML::style('css/signin.css') }}
+	{{HTML::style('css/estiloappas.css') }}
 	{{HTML::script('js/ie-emulation-modes-warning.js')}}
 	{{HTML::script('js/jquery.min.js')}}
 

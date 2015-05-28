@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CrearTablaTblaLimitacion extends Migration {
+class CrearTablaTblaPersonaentrevistar extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,10 +12,12 @@ class CrearTablaTblaLimitacion extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('tbla_limitacion', function(Blueprint $table)
+		Schema::create('tbla_personaentrevistar', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->text('limitacion');
+			$table->string('cargo',100);
+			$table->string('apellidos',70);
+			$table->string('nombre',50);
 			$table->unsignedInteger('planauditoria_id');
 			$table->foreign('planauditoria_id')->references('id')->on('tbla_planauditoria');
 		});
@@ -28,7 +30,7 @@ class CrearTablaTblaLimitacion extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('tbla_limitacion');
+		Schema::drop('tbla_personaentrevistar');
 	}
 
 }

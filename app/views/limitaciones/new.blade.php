@@ -7,7 +7,7 @@
 <div class="form-group @if($errors->get('limitacion')) {{'has-error'}} @endif ">
     <label class="col-sm-2 control-label">Limitacion:</label>
     <div class="col-sm-7">
-        {{ Form::textarea('limitacion',null,array('class'=>'form-control','placeholder'=>'ingrese Titulo')) }}
+        {{ Form::textarea('limitacion',null,array('class'=>'form-control','placeholder'=>'ingrese Limitación','required'=>'true')) }}
     </div>
 </div>
 

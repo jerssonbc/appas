@@ -102,6 +102,11 @@ Route::group(array('before'=>'validar'),function(){
 	Route::post('addAuditor','AuditorController@guardarAuditor');
 	Route::post('editAuditor/{id}','AuditorController@actualizarAuditor');
 
+	Route::get('personasEntrevistar','PersonaEntrevistarController@listarPersonas');
+	Route::get('personaEntrevistarNueva','PersonaEntrevistarController@nuevaPersona');
+	Route::post('registrarPersona','PersonaEntrevistarController@guardarPersona');
+	Route::post('editPersona/{id}','PersonaEntrevistarController@actualizarPersona');
+
 });
 
 	Route::post('registrarPlanAuditoria','PlanAuditoriaController@save');

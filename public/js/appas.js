@@ -82,3 +82,41 @@ $('#edit_auditor').submit(function(event){
 		
 	});
 });
+
+function openEditPersona(id,cargo,apell,nombre){
+	$('#edit_Persona').each (function(){
+  		this.reset();
+	});
+	
+	$('#edit_persona_id').val(id);
+
+	$("input[name=cargoe]").val(cargo);
+	$("input[name=apellidose]").val(apell);
+	$("input[name=nombree]").val(nombre);
+	
+
+	$('#editPersonaModal').modal('show');
+}
+
+
+$('#edit_Persona').submit(function(event){
+	event.preventDefault();
+	var idpersona=$("#edit_persona_id").val();
+	var vcargo=$("input[name=cargoe]").val();
+
+	var vapellidos=$("input[name=apellidose]").val();
+	var vnombre=$("input[name=nombree]").val();
+	
+	
+
+	$.post('editPersona/'+idpersona,{apellidos:vapellidos,nombre:vnombre,
+				cargo:vcargo
+			}).done(function(data){	
+
+			$('#editPersonaModal').modal('hide');
+
+			$('#tbpersonas').html(data);
+			
+		
+	});
+});

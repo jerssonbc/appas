@@ -2,7 +2,9 @@
 
 @section("modulo")
 
-{{ Form::model($planAuditoria,array('url'=>'planAuditoriaUpdate','method'=>'POST','class'=>'form-horizontal') ) }}
+{{ Form::model($planAuditoria,
+    array('url'=>'planAuditoriaUpdate','method'=>'POST',
+    'class'=>'form-horizontal planauditoria') ) }}
 
 <div class="form-group @if($errors->get('titulo_auditoria')) {{'has-error'}} @endif ">
     <label class="col-sm-2 control-label">Titulo Auditoría </label>

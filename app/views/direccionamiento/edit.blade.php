@@ -1,8 +1,8 @@
 @extends("layouts.master")
 
 @section("modulo")
-
-{{ Form::model($direccionamiento,array('url'=>'direccionamientoUpdate','method'=>'POST','class'=>'form-horizontal') ) }}
+<h2 class="page-header">Edición de Direccionamiento</h2>
+{{ Form::model($direccionamiento,array('url'=>'direccionamientoUpdate','method'=>'POST','class'=>'form-horizontal fdireccionamiento') ) }}
 
 
 <div class="form-group @if($errors->get('mision')) {{'has-error'}} @endif ">

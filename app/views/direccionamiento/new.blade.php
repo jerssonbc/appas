@@ -1,7 +1,7 @@
 @extends("layouts.master")
 
 @section("modulo")
-
+<h2 class="page-header">Registro de Direccionamiento</h2>
 {{ Form::open(array('url'=>'registrarDireccionamiento','method'=>'POST','class'=>'form-horizontal fdireccionamiento')) }}
 
 

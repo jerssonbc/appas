@@ -34,7 +34,8 @@ $(document).ready(function()
 <div class="form-group @if($errors->get('descripcion')) {{'has-error'}} @endif ">
     <label class="col-sm-2 control-label">Descripcion:</label>
     <div class="col-sm-7">
-        {{ Form::text('descripcion',null,array('class'=>'form-control','placeholder'=>'Ingrese Objetivo')) }}
+        {{ Form::text('descripcion',null,
+            array('class'=>'form-control','placeholder'=>'Ingrese Objetivo','required'=>'true')) }}
     </div>
 </div>
 <div class="form-group">

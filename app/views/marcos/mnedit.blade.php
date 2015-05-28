@@ -2,19 +2,20 @@
 
 @section("modulo")
 <br><br>
-<h1 class="page-header">Marco Referencial Nacional</h1>
-{{ Form::model($nacional,array('url'=>'nacionalUpdate/' . $nacional->id ,'method'=>'POST','class'=>'form-horizontal') ) }}
+
+<h2 class="page-header">Edición Marco Referencial Nacional</h2>
+{{ Form::model($nacional,array('url'=>'nacionalUpdate/' . $nacional->id ,'method'=>'POST','class'=>'form-horizontal marcosutilizar') ) }}
 
 <div class="form-group @if($errors->get('nombre')) {{'has-error'}} @endif ">
     <label class="col-sm-2 control-label">Nombre</label>
     <div class="col-sm-7">
-        {{ Form::text('nombre',null,array('class'=>'form-control','placeholder'=>'ingrese Nombre')) }}
+        {{ Form::text('nombre',null,array('class'=>'form-control','placeholder'=>'ingrese Nombre','required'=>'true')) }}
     </div>
 </div>
 <div class="form-group @if($errors->get('descripcion')) {{'has-error'}} @endif ">
     <label class="col-sm-2 control-label">Descripción</label>
     <div class="col-sm-7">
-        {{ Form::text('descripcion',null,array('class'=>'form-control','placeholder'=>'ingrese Descripción')) }}
+        {{ Form::textarea('descripcion',null,array('class'=>'form-control','placeholder'=>'ingrese Descripción','required'=>'true')) }}
     </div>
 </div>
 

@@ -1,8 +1,9 @@
 @extends("layouts.index")
 
 @section("lista")
-
-{{ Form::open(array('url'=>'registrarPlanAuditoria','method'=>'POST','class'=>'form-horizontal')) }}
+<h2 class="page-header">Registro de Plan de Auditoria</h2>
+{{ Form::open(array('url'=>'registrarPlanAuditoria',
+            'method'=>'POST','class'=>'form-horizontal planauditoria')) }}
 
 <div class="form-group @if($errors->get('titulo_auditoria')) {{'has-error'}} @endif ">
     <label class="col-sm-2 control-label">Titulo Auditoria:</label>
@@ -39,7 +40,7 @@
 <div class="form-group">
             <div class="col-sm-offset-2 ">
               <button type="submit" class="btn btn-primary">Guardar</button>
-              <a href="{{url('/empresas')}}" class="btn btn-primary">Cancelar</a>
+              <a href="{{url('/empresas')}}" class="btn btn-danger">Cancelar</a>
             </div>
 </div>
 

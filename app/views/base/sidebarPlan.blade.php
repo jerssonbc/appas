@@ -33,5 +33,20 @@
         <li class="{{ Request::is('equipoAuditor*') ? 'active' : ''}}">
             <a href="{{url('/equipoAuditor')}}">
                 <span class="glyphicon glyphicon-user" aria-hidden="true"></span>Equipo Auditor</a></li>
+
+                
+        <li class="{{ Request::is('personasEntrevistar*') ? 'active' : ''}}">
+            <a href="{{url('/personasEntrevistar')}}">
+                <span class="glyphicon glyphicon-indent-left" aria-hidden="true"></span>Personas a Entrevistar</a></li>
+
+
+
+         <li class="">
+            <a href="#">
+                <span class="glyphicon glyphicon-indent-left" aria-hidden="true"></span>Pruebas de Cumplimiento</a></li>
+
+        <li class="">
+            <a href="{{url('/#')}}">
+                <span class="glyphicon glyphicon-indent-left" aria-hidden="true"></span>Pruebas Sustativas</a></li>
     </ul>
 </div>
