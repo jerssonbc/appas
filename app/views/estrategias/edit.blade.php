@@ -5,13 +5,13 @@
 {{ Form::model($estrategias,array('url'=>'estrategiasUpdate/' . $estrategias->id ,'method'=>'POST','class'=>'form-horizontal') ) }}
 
 <div class="form-group @if($errors->get('titulo')) {{'has-error'}} @endif ">
-    <label class="col-sm-2 control-label">Razon Social</label>
+    <label class="col-sm-2 control-label">Titulo:</label>
     <div class="col-sm-7">
         {{ Form::text('titulo',null,array('class'=>'form-control','placeholder'=>'ingrese razon social')) }}
     </div>
 </div>
 <div class="form-group @if($errors->get('estrategia')) {{'has-error'}} @endif ">
-    <label class="col-sm-2 control-label">Giro Negocio</label>
+    <label class="col-sm-2 control-label">Estategia:</label>
     <div class="col-sm-7">
         {{ Form::text('estrategia',null,array('class'=>'form-control','placeholder'=>'ingrese giro negocio')) }}
     </div>

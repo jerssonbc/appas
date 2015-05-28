@@ -27,7 +27,8 @@
 		{{
 			Form::submit('Registrar!',array('class'=>'btn btn-primary'));
 		}}
-		<a href="{{url('/perfilEquipo')}}" class="btn btn-primary">Cancelar</a>
+		 
+		<a href="{{url('/perfilEquipo')}}" class="btn btn-danger">Cancelar</a>
 		{{
 			Form::close()
 		}}

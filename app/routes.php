@@ -97,6 +97,11 @@ Route::group(array('before'=>'validar'),function(){
 	Route::get('editarPerfil/{id}','PerfilController@editarPerfil');
 	Route::post('actualizarPerfil/{id}','PerfilController@actualizarPerfil');
 
+	Route::get('equipoAuditor','AuditorController@listarAuditores');
+	Route::get('nuevoAuditor','AuditorController@nuevoAuditor');
+	Route::post('addAuditor','AuditorController@guardarAuditor');
+	Route::post('editAuditor/{id}','AuditorController@actualizarAuditor');
+
 });
 
 	Route::post('registrarPlanAuditoria','PlanAuditoriaController@save');

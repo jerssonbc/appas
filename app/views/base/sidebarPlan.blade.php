@@ -30,8 +30,8 @@
             <a href="{{url('/perfilEquipo')}}">
                 <span class="glyphicon glyphicon-user" aria-hidden="true"></span>Perfil de Equipo de Auditoria</a></li>
 
-        <li>
-            <a href="#">
+        <li class="{{ Request::is('equipoAuditor*') ? 'active' : ''}}">
+            <a href="{{url('/equipoAuditor')}}">
                 <span class="glyphicon glyphicon-user" aria-hidden="true"></span>Equipo Auditor</a></li>
     </ul>
 </div>

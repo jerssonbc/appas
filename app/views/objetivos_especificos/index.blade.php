@@ -40,7 +40,7 @@ $(document).ready(function()
 <div class="form-group">
             <div class="col-sm-offset-2 ">
               <button type="submit" class="btn btn-primary">Guardar</button>
-              <a href="{{url('/empresas')}}" class="btn btn-primary">Cancelar</a>
+              <a href="{{url('/empresas')}}" class="btn btn-danger">Cancelar</a>
             </div>
 </div>
 {{Form::close()}}

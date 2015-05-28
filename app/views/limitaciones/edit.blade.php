@@ -5,7 +5,7 @@
 {{ Form::model($limitaciones,array('url'=>'limitacionesUpdate/' . $limitaciones->id ,'method'=>'POST','class'=>'form-horizontal') ) }}
 
 <div class="form-group @if($errors->get('limitacion')) {{'has-error'}} @endif ">
-    <label class="col-sm-2 control-label">Limitacion</label>
+    <label class="col-sm-2 control-label">Limitacion:</label>
     <div class="col-sm-7">
         {{ Form::textarea('limitacion',null,array('class'=>'form-control','placeholder'=>'ingrese Limitacion')) }}
     </div>
