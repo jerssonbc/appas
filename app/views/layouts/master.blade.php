@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Aplicación Auditoria</title>
 	{{HTML::style('css/bootstrap.min.css')}}
+	{{HTML::style('css/bootstrap-theme.min.css')}}
 	{{HTML::style('css/dashboard.css')}}
 	{{HTML::style('css/signin.css') }}
 	{{HTML::style('css/estiloappas.css') }}
@@ -33,7 +34,7 @@
 	            <!-- Table -->
 	            @yield('modulo')
 	            <!-- End Table -->
-	          </div>
+	         </div>
 	        </div>
 	      </div>
     	</div>

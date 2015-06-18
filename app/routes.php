@@ -107,6 +107,8 @@ Route::group(array('before'=>'validar'),function(){
 	Route::post('registrarPersona','PersonaEntrevistarController@guardarPersona');
 	Route::post('editPersona/{id}','PersonaEntrevistarController@actualizarPersona');
 
+	Route::get('pruebasCumplimiento','PruebaCumplimientoController@listarPCumplimiento');
+	Route::get('nuevoCuestionarioCumplimiento','PruebaCumplimientoController@nuevaPCumplimiento');
 });
 
 	Route::post('registrarPlanAuditoria','PlanAuditoriaController@save');

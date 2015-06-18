@@ -1,3 +1,8 @@
+body{
+
+	/*background: url(../img/fondo1.jpg) no-repeat center center fixed;*/
+}
+
 .fdireccionamiento   textarea{
 	height: 150px;
 }
@@ -8,4 +13,49 @@
 
 .marcosutilizar textarea{
 	height: 150px;
+}
+
+.alinear-centro{
+	text-align: center;
+}
+
+/*estilo para nuevo login*/
+
+.login-form {
+	margin-top: 60px;
+	
+}
+
+form[role=login] {
+	color: #5d5d5d;
+	background: #C3DFFA;
+	padding: 26px;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+}
+form[role=login] img {
+		display: block;
+		margin: 0 auto;
+		margin-bottom: 35px;
+}
+form[role=login] input,
+form[role=login] button {
+	font-size: 18px;
+	margin: 16px 0;
+}
+form[role=login] > div {
+	text-align: center;
+}
+
+.login-form  .form-control {
+	  position: relative;
+	  font-size: 16px;
+	  height: auto;
+	  padding: 10px;
+	@include box-sizing(border-box);
+
+		&:focus {
+		  z-index: 2;
+		}
 }

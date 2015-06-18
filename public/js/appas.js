@@ -70,7 +70,7 @@ $('#edit_auditor').submit(function(event){
 	var vcarrera=$("input[name=carreraae]").val();
 	var vdireccion=$("input[name=direccionae]").val();
 
-	$.post('editAuditor/'+idauditor,{apellidos:vapellidos,nombre:vnombre,
+	$.post('editAuditor/'+idauditor,{apellidos:vapellidos,nombres:vnombre,
 				rol:vrol,dni:vdni,email:vemail,telefono:vtelefono,
 				direccion:vdireccion,celular:vcelular,carrera:vcarrera
 			}).done(function(data){	

@@ -41,8 +41,8 @@
 
 
 
-         <li class="">
-            <a href="#">
+         <li class="{{ Request::is('pruebasCumplimiento*') ? 'active' : ''}}">
+            <a href="{{url('/pruebasCumplimiento')}}">
                 <span class="glyphicon glyphicon-indent-left" aria-hidden="true"></span>Pruebas de Cumplimiento</a></li>
 
         <li class="">
