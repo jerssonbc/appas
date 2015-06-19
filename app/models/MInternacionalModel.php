@@ -5,7 +5,7 @@
 
 		protected $table = 'tbla_marco_ref_internacional';
 
-		protected $fillable = array('nombre', 'descripcion','planauditoria_id','estado');
+		//protected $fillable = array('nombre', 'descripcion','planauditoria_id','estado');
 
 		// function __construct()
 		// {

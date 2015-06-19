@@ -54,7 +54,7 @@
 			//mensajes de reglas de validacion
 			$mensajes=array(
 				'email.required'  =>'La dirección de correo electrónico es un campo obligatorio ',
-				'password.min'    =>'El passwrod debe tener al menos un total de 8 caracters ',
+				'password.min'    =>'El password debe tener al menos un total de 8 caracters ',
 				'password.required'=>'El password es un campo obligatorio'
 				);
 

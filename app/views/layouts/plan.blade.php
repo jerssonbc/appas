@@ -7,8 +7,12 @@
 	{{HTML::style('css/dashboard.css')}}
 	{{HTML::style('css/signin.css') }}
 	{{HTML::style('css/estiloappas.css') }}
+	{{HTML::style('css/bootstrap-datepicker.css')}}
 	{{HTML::script('js/ie-emulation-modes-warning.js')}}
 	{{HTML::script('js/jquery.min.js')}}
+	{{HTML::script('js/bootstrap-datepicker.js')}}
+	{{HTML::script('js/bootstrap-datepicker.es.min.js')}}
+
 
 </head>
 <body>

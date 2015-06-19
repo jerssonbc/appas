@@ -2,7 +2,7 @@
 
 @section("modulo")
 <br><br>
- <h2 class="page-header">Registro Marco Referencial Nacional</h2>Marco 
+ <h2 class="page-header">Registro Marco Referencial Nacional</h2>
 {{ Form::open(array('url'=>'registrarMNacional',
         'method'=>'POST','class'=>'form-horizontal marcosutilizar')) }}
 

@@ -9,6 +9,34 @@
 		{
 			return Redirect::to('Listar');
 		}
+
+		/*Metodo para extraer el nombre de un tipo de Marco*/
+		public function getMarco($id){
+			if ($id==1) {
+				$marcosi=MInternacionalModel::where('planauditoria_id',Session::get('id_plan'))
+								->orderBy('nombre')->get(array('id','nombre'));
+											
+				return View::make('marcos.marcosdetipo')->with('marcos',$marcosi);
+			}else{
+				if ($id==2) {
+					$marcosn=MNacionalModel::where('planauditoria_id',Session::get('id_plan'))
+									->orderBy('nombre')->get(array('id','nombre'));
+					return View::make('marcos.marcosdetipo')->with('marcos',$marcosn);
+				}else{
+					if ($id==3) {
+						$ninstitucionales=NInstitucionalModel::where('planauditoria_id',Session::get('id_plan'))
+									->orderBy('nombre')->get(array('id','nombre'));
+						return View::make('marcos.marcosdetipo')->with('marcos',$ninstitucionales);
+					}else{
+						return View::make('marcos.marcosdetipo')->with('marcos',array());
+					}
+					
+
+					
+				}
+			}
+		}
+
 		public function MINuevo()
 		{
 			return View::make('marcos.minew');

@@ -120,3 +120,24 @@ $('#edit_Persona').submit(function(event){
 		
 	});
 });
+
+$(document).ready(function(){
+
+	$('#idtipom').change(function (){
+		var tipom=$('#idtipom option:selected').val();
+		$.post('marcodetipo/'+tipom).done(function(data){
+			$('#imutilizar').html('');
+			$('#imutilizar').append(data);
+		});
+	});
+	
+});
+
+function openRegCuesCumplimiento()
+{
+	// $('#add_auditor').each (function(){
+ //  		this.reset();
+	// });
+	$('#nuevapcumplimiento').modal('show');
+
+}
