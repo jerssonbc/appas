@@ -116,7 +116,9 @@ Route::group(array('before'=>'validar'),function(){
 	Route::post('registrarMInternacional','MarcosController@MIsave');
 	Route::post('registrarMNacional','MarcosController@MNsave');
 	Route::post('registrarNInstitucional','MarcosController@NIsave');
+	
 	Route::post('registrarEmpresa','EmpresasController@save');
+
 	Route::post('registrarObjetivo','ObjetivosController@save');
 	Route::post('registrarAclaraciones','AclaracionesController@save');
 

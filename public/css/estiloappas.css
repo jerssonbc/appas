@@ -3,6 +3,10 @@ body{
 	/*background: url(../img/fondo1.jpg) no-repeat center center fixed;*/
 }
 
+.colornav{
+	background:#ffd777;
+}
+
 .fdireccionamiento   textarea{
 	height: 150px;
 }
@@ -10,13 +14,20 @@ body{
 .planauditoria textarea{
 	height: 150px;
 }
-
-.marcosutilizar textarea{
+.newplanauditoria textarea{
+	height: 85px;
+}
+.marcosutilizar textarea,{
 	height: 150px;
 }
 
+
 .alinear-centro{
 	text-align: center;
+}
+
+.lgmodal{
+	width: 900px;
 }
 
 /*estilo para nuevo login*/

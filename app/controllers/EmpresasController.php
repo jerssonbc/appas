@@ -4,7 +4,7 @@
 	*/
 	class EmpresasController extends BaseController
 	{
-		protected $layout='layouts.master';
+		//protected $layout='layouts.master';
 		public function Index()
 		{
 			$empresas= EmpresaModel::all();
@@ -55,24 +55,31 @@
 		{
 			$empresa=new EmpresaModel;
 			$empresa->usuario_id		=Session::get('id_usuario');
-			$empresa->razon_social	=Input::get('razon_social');
-			$empresa->giro_negocio 		=Input::get('giro_negocio');
-			$empresa->resena_historica 	=Input::get('resena_historica');
+			$empresa->razon_social	=Input::get('rsocial');
+			$empresa->giro_negocio 		=Input::get('gnegocio');
+			$empresa->resena_historica 	=Input::get('rhistorica');
 
 			$data=array(
 				'usuario_id'		=>Session::get('id_usuario'),
-				'razon_social' 	=>Input::get('razon_social'),
-				'giro_negocio'			=>Input::get('giro_negocio'),
-				'resena_historica'		=>Input::get('resena_historica')
+				'razon_social' 	=>Input::get('rsocial'),
+				'giro_negocio'			=>Input::get('gnegocio'),
+				'resena_historica'		=>Input::get('rhistorica')
 				);
 
 			if (!$empresa->validador($data)) {
-				$this->layout->modulo=View::make('mensaje',array('encabezado' => 'Advertencia:',
-					'cuerpo' =>$empresa->mostrar_errores()));
+				$data=View::make('erroresmensaje',array('cuerpo'=>$empresa->mostrar_errores()));
+				return array('error'=>'1',
+					'edata'=>'Lista de Errores:'.$data);
+				//$this->layout->modulo=View::make('mensaje',array('encabezado' => 'Advertencia:',
+					//'cuerpo' =>$empresa->mostrar_errores()));
 			}else{
 				$empresa->save();
-				$this->layout->notificacion='Registro Exitoso';
-				return Redirect::to('empresas');
+				$empresas= EmpresaModel::where('usuario_id',Session::get('id_usuario'))->get();
+				return array('error'=>'0',
+					'edata'=>'Registro Exitoso',
+					'dempresas'=>' '.View::make('empresas.listaempresas',array('empresas' => $empresas)));
+				// $this->layout->notificacion='Registro Exitoso';
+				// return Redirect::to('empresas');
 			}
 		}
 		public function Listar()

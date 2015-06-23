@@ -1,35 +1,40 @@
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Auditoria de Sistemas</a>
-        </div>
 
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-            @if(!Session::get('id_usuario'))
+<nav class="navbar navbar navbar-fixed-top colornav" role="navigation" style="padding-top: 10px;">
+  <a data-original-title="Show/Hide Menu" data-placement="bottom" data-tooltip="tooltip" class="accordion-toggle btn btn-primary btn-sm visible-xs" data-toggle="collapse" href="#menu" id="menu-toggle">
+       <i class="icon-align-justify"></i>
+  </a>
+  <!-- LOGO SECTION -->
+        <header class="navbar-header">
+
+            <a href="{{url('empresas')}}" class="navbar-brand">
+           Auditoria de Sistemas
+            <img src="assets/img/logo.png" alt="" />
+                
+                </a>
+        </header>
+   <!-- END LOGO SECTION -->
+  <ul class="nav navbar-top-links navbar-right">
+    @if(!Session::get('id_usuario'))
             @else
               <li>
-              <!-- Menu para sali-->
-              <a href="{{url('empresas')}}">
-                <span class="glyphicon glyphicon-equalizer" aria-hidden="true"></span><span>Empresa</span>
-                
-              </a>
+                <!-- Menu para empresas-->
+
+                <a href="{{url('empresas')}}">
+                         <i class="icon-list"></i>   Empresas 
+               </a>
+               
               </li>
               <li>
               <!-- Menu para sali-->
               <a href="{{url('/salir')}}">
-                <span class="glyphicon glyphicon-share" aria-hidden="true"></span><span>Salir</span>
+                <i class="icon-signout"></i>Salir
                 
               </a>
               </li>
-            @endif
-          </ul>
-        </div>
-      </div>
+    @endif
+  </ul>
+
+   
 </nav>
+
+

@@ -40,7 +40,7 @@
 		}
 		public function Edit()
 		{
-			$planAuditoria = PlanAuditoriaModel::find(Session::get('id_empresa'));
+			$planAuditoria = PlanAuditoriaModel::find(Session::get('id_plan'));
 			
 			return View::make('planAuditoria.edit')->with('planAuditoria',$planAuditoria);
 		}
@@ -56,30 +56,38 @@
 		{
 			$planAuditoria=new PlanAuditoriaModel;
 			$planAuditoria->empresa_id	=Session::get('id_empresa');
-			$planAuditoria->realidad_problematica	    =Input::get('realidad_problematica');
-			$planAuditoria->titulo_auditoria 		=Input::get('titulo_auditoria');
-			$planAuditoria->objetivo_general 	=Input::get('objetivo_general');
+			$planAuditoria->realidad_problematica	    =Input::get('rploblematica');
+			$planAuditoria->titulo_auditoria 		=Input::get('tauditoria');
+			$planAuditoria->objetivo_general 	=Input::get('ogeneral');
 			$planAuditoria->alcance 	=Input::get('alcance');
-			$planAuditoria->alineamiento_negocio 	=Input::get('alineamiento_negocio');
+			$planAuditoria->alineamiento_negocio 	=Input::get('anegocio');
 			$planAuditoria->estado 	=1;
 
 			$data=array(
 				'empresa_id'		=>Session::get('id_empresa'),
-				'realidad_problematica' 	=>Input::get('realidad_problematica'),
-				'titulo_auditoria'			=>Input::get('titulo_auditoria'),
-				'objetivo_general'		=>Input::get('objetivo_general'),
+				'realidad_problematica' 	=>Input::get('rploblematica'),
+				'titulo_auditoria'			=>Input::get('tauditoria'),
+				'objetivo_general'		=>Input::get('ogeneral'),
 				'alcance'		=>Input::get('alcance'),
-				'alineamiento_negocio'		=>Input::get('alineamiento_negocio'),
+				'alineamiento_negocio'		=>Input::get('anegocio'),
 				'estado'		=>1
 				);
 
 			if (!$planAuditoria->validador($data)) {
-				$this->layout->modulo=View::make('mensaje',array('encabezado' => 'Advertencia:',
-					'cuerpo' =>$planAuditoria->mostrar_errores()));
+				$data=View::make('erroresmensaje',array('cuerpo'=>$planAuditoria->mostrar_errores()));
+				return array('error'=>'1',
+					'edata'=>'Lista de Errores:'.$data);
+				//$this->layout->modulo=View::make('mensaje',array('encabezado' => 'Advertencia:',
+				//	'cuerpo' =>$planAuditoria->mostrar_errores()));
 			}else{
 				$planAuditoria->save();
-				$this->layout->notificacion='Registro Exitoso';
-				return Redirect::to('planAuditoria');
+
+				$planesAuditoria= PlanAuditoriaModel::where('empresa_id',Session::get('id_empresa'))->get();
+				return array('error'=>'0',
+					'edata'=>'Registro Exitoso',
+					'dplanes'=>' '.View::make('planAuditoria.listarplanes',array('planesAuditoria' => $planesAuditoria)));
+				//$this->layout->notificacion='Registro Exitoso';
+				//return Redirect::to('planAuditoria');
 			}
 		}
 		public function Listar()

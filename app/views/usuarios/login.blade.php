@@ -1,3 +1,7 @@
+@section('estilospage')
+	{{HTML::style('css/login.css')}}
+	{{HTML::style('css/magic.css')}}
+@stop
 @section('inicio')
 	<div class="container">
 		<div class="col-md-4"></div>

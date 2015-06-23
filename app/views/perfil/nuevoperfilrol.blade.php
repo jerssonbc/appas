@@ -1,7 +1,15 @@
 @extends("layouts.plan")
 
 @section("modulo")
-	<h1 class="page-header">Perfil de Rol</h1>
+<div class="row">
+  <div class="col-lg-12">
+    <h2>Perfil de Equipo Auditor</h2>
+  </div>
+</div>               
+<hr />
+<div class="row">
+  	<div class="col-lg-12">
+  	<h2>Registro de Perfil</h2>
 	@if($numroles>0)
 		{{
 		Form::open(array('url'=>'registrarPerfil'))
@@ -38,6 +46,10 @@
 		<p>Registre primero Roles para poder agregar su perfil respectivo</p>
 		<a href="{{url('/perfilEquipo')}}" class="btn btn-primary">Regresar a Perfil</a>
 	@endif
+  	</div>
+ </div>
+
+	
 	
 	
 @stop

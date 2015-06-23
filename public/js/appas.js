@@ -1,3 +1,5 @@
+
+
 function openEditRol(id){
 	$('#edit_rol_id').val(id);
 	var rol=$('#spanrol_'+id).text();
@@ -98,7 +100,17 @@ function openEditPersona(id,cargo,apell,nombre){
 	$('#editPersonaModal').modal('show');
 }
 
+$(document).ready(function(){
 
+	$('#idtipom').change(function (){
+		var tipom=$('#idtipom option:selected').val();
+		$.post('marcodetipo/'+tipom).done(function(data){
+			$('#imutilizar').html('');
+			$('#imutilizar').append(data);
+		});
+	});
+	
+});
 $('#edit_Persona').submit(function(event){
 	event.preventDefault();
 	var idpersona=$("#edit_persona_id").val();
@@ -121,17 +133,6 @@ $('#edit_Persona').submit(function(event){
 	});
 });
 
-$(document).ready(function(){
-
-	$('#idtipom').change(function (){
-		var tipom=$('#idtipom option:selected').val();
-		$.post('marcodetipo/'+tipom).done(function(data){
-			$('#imutilizar').html('');
-			$('#imutilizar').append(data);
-		});
-	});
-	
-});
 
 function openRegCuesCumplimiento()
 {
@@ -141,3 +142,69 @@ function openRegCuesCumplimiento()
 	$('#nuevapcumplimiento').modal('show');
 
 }
+function openRegEmpresa()
+{
+	$('#nueva_empresa').each (function(){
+ 		this.reset();
+	 });
+	$('#newEmpresa').modal('show');
+}
+
+$('#nueva_empresa').submit(function(event){
+	event.preventDefault();
+	var vrsocial=$("input[name=rsocial]").val();
+	var vgnegocio=$("input[name=gnegocio]").val();
+	var vrhistorica=$("#rhistorica").val();
+
+	$.post('registrarEmpresa',{rsocial:vrsocial,gnegocio:vgnegocio,
+				rhistorica:vrhistorica
+			}).done(function(data){	
+				if(data['error']=='0'){
+					$('#newEmpresa').modal('hide');
+					$("#cdialog").dialog( "open" );
+					$("#dataempresas").html(data["dempresas"]);
+				}else{
+					//alert('Erroes'+data['edata']);
+					$('#newEmpresa').modal('hide');
+					$("#mdialog" ).html(data['edata']);
+					$("#mdialog").dialog( "open" );
+
+					
+				}	
+			}).fail(function(data){
+				alert("Hubo error");
+			});
+});
+
+function openRegPlan()
+{
+	$('#nuevo_plan').each (function(){
+ 		this.reset();
+	 });
+	$('#newPlan').modal('show');
+}
+
+$('#nuevo_plan').submit(function(event){
+	event.preventDefault();
+	var vtauditoria=$("input[name=tauditoria]").val();
+	var vrploblematica=$("#rploblematica").val();
+	var vogeneral=$("input[name=ogeneral]").val();
+	var valcance=$("#alcance").val();
+	var vanegocio=$("#anegocio").val();
+	$.post('registrarPlanAuditoria',{tauditoria:vtauditoria,
+				rploblematica:vrploblematica,ogeneral:vogeneral,
+				alcance:valcance,anegocio:vanegocio
+			}).done(function(data){	
+				if(data['error']=='0'){
+					$('#newPlan').modal('hide');
+					$("#cdialog").dialog( "open" );
+					$("#dataplanes").html(data["dplanes"]);
+				}else{
+					$('#newPlan').modal('hide');
+					$("#mdialog" ).html(data['edata']);
+					$("#mdialog").dialog( "open" );		
+				}	
+			}).fail(function(data){
+				alert("Hubo error");
+			});
+});

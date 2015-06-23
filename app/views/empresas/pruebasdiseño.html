@@ -1,0 +1,38 @@
+ <div class="panel panel-primary">
+                <div class="panel-heading">
+                    MIS EMPRESAS
+                    <a href="{{url('/empresaNuevo')}}" class="btn btn-default btn-sm pull-right">Nueva empresa</a>
+                </div>
+
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered table-hover" id="dataTables-empresas">
+                            <thead>
+                                <tr>
+                                    <th>Razon Social</th>
+                                    <th>Giro Negocio</th>
+                                    <th class="center">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($empresas as $empresas)
+                                <tr>
+                                    <td>{{ $empresas->razon_social }}</td>
+                                    <td>{{ $empresas->giro_negocio }}</td>
+                                    <td class="center">
+                                        <a class = "btn btn-info" href="{{url('/Administrar',$empresas->id )}}">Editar</a>
+                                        <a class = "btn btn-danger" href="#">Eliminar</a>
+                                    </td>
+                                </tr>
+                                @endforeach
+                                
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="panel-footer">
+                   
+                </div>
+            </div>

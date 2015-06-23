@@ -7,7 +7,7 @@
 
 		}}
 			<h2 class="form-signin-heading">
-      		<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+      		<span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
       		APPAS REGISTRO
     		</h2>
 	

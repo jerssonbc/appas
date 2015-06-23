@@ -1,7 +1,9 @@
 @extends("layouts.plan")
 
 @section("modulo")
-	<h2 page-header>Registro de Auditor</h2>
+<div class="row">
+  	<div class="col-lg-12">
+	<h2>Registro de Auditor</h2>
 	{{Form::open(array('url'=>'addAuditor','id'=>'add_auditor','class'=>'form-horizontal'))}}
 							<div class="form-group">
 								{{Form::label('apellidosa','Apellidos: ',array('class'=>'col-sm-2 control-label'))}}
@@ -77,4 +79,6 @@
 								</div>
 							</div>
 	{{Form::close()}}
+	</div>
+</div>
 @stop
