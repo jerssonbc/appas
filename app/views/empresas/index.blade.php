@@ -89,12 +89,13 @@
                             
                         </div>
                         <div class="form-group">
-                                <div class="col-sm-offset-8">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                            <div class="col-sm-offset-8">
+                                
                                 {{
                                     Form::submit('Registrar',array('class'=>'btn btn-primary'))
                                 }}
-                                </div>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                            </div>
                                 
                         </div>
                    

@@ -28,7 +28,7 @@ class CrearTablaTblaLimitacion extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('tbla_limitacion');
+	// 	Schema::drop('tbla_limitacion');
 	}
 
 }

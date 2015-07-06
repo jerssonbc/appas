@@ -35,7 +35,7 @@ class CrearTablaTblaEmpresa extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('tbla_empresa');
+		// Schema::drop('tbla_empresa');
 	}
 
 }

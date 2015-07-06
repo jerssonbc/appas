@@ -26,7 +26,7 @@ class CrearTablaTblaEstado extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('tbla_estado');
+		// Schema::drop('tbla_estado');
 	}
 
 }

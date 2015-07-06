@@ -28,10 +28,10 @@ class CrearTablaTblaPerfil extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('tbla_perfil', function(Blueprint $table)
-		{
-			//
-		});
+		// Schema::drop('tbla_perfil', function(Blueprint $table)
+		// {
+		// 	//
+		// });
 	}
 
 }

@@ -37,10 +37,10 @@ class CrearTablaTblaAuditor extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('tbla_auditor', function(Blueprint $table)
-		{
-			//
-		});
+		// Schema::drop('tbla_auditor', function(Blueprint $table)
+		// {
+		// 	//
+		// });
 	}
 
 }

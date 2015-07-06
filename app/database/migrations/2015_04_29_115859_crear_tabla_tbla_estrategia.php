@@ -30,7 +30,7 @@ class CrearTablaTblaEstrategia extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('tbla_estrategia');
+		// Schema::drop('tbla_estrategia');
 	}
 
 }

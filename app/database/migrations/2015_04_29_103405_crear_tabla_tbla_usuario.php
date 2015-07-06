@@ -33,7 +33,7 @@ class CrearTablaTblaUsuario extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('tbla_usuario');
+		// Schema::drop('tbla_usuario');
 		
 	}
 

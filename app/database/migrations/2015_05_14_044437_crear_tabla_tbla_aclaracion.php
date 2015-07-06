@@ -31,10 +31,10 @@ class CrearTablaTblaAclaracion extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('tbla_aclaracion', function(Blueprint $table)
-		{
-			//
-		});
+		// Schema::drop('tbla_aclaracion', function(Blueprint $table)
+		// {
+		// 	//
+		// });
 	}
 
 }

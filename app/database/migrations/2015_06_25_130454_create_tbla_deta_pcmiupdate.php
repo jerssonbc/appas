@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CrearTablaTblaPreguntacumplimiento extends Migration {
+class CreateTblaDetaPcmiupdate extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,14 +12,13 @@ class CrearTablaTblaPreguntacumplimiento extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('tbla_preguntacumplimiento', function(Blueprint $table)
+		Schema::create('tbla_deta_pc_mi', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->text('pregunta');
-			$table->char('respuesta',4);
-			$table->text('obervaciones');
 			$table->unsignedInteger('pruebacumplimiento_id');
 			$table->foreign('pruebacumplimiento_id')->references('id')->on('tbla_pruebacumplimiento');
+			$table->unsignedInteger('marco_ref_internacional_id');
+			$table->foreign('marco_ref_internacional_id')->references('id')->on('tbla_marco_ref_internacional');
 		});
 	}
 
@@ -30,8 +29,11 @@ class CrearTablaTblaPreguntacumplimiento extends Migration {
 	 */
 	public function down()
 	{
-		//Schema::drop('tbla_preguntacumplimiento');
-		
+		Schema::table('tbla_deta_pc_mi', function(Blueprint $table)
+		{
+			//
+		});
 	}
+	
 
 }

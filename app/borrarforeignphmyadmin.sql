@@ -1,0 +1,1 @@
+alter table  `tbla_deta_pc_mn` drop foreign key tbla_deta_pc_mn_pruebacumplimiento_id_foreign

@@ -31,7 +31,7 @@ class CrearTablaTblaObjetivosEspecificos extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('tbla_objetivos_especificos');
+		// Schema::drop('tbla_objetivos_especificos');
 		
 	}
 

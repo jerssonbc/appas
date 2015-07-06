@@ -26,10 +26,10 @@ class CrearTablaTblaTipoaclaracion extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('tbla_tipoaclaracion', function(Blueprint $table)
-		{
-			//
-		});
+		// Schema::drop('tbla_tipoaclaracion', function(Blueprint $table)
+		// {
+		// 	//
+		// });
 	}
 
 }

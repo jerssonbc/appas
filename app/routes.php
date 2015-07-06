@@ -110,6 +110,7 @@ Route::group(array('before'=>'validar'),function(){
 
 	Route::get('pruebasCumplimiento','PruebaCumplimientoController@listarPCumplimiento');
 	Route::get('nuevoCuestionarioCumplimiento','PruebaCumplimientoController@nuevaPCumplimiento');
+	Route::post('registrarCCumplimiento','PruebaCumplimientoController@registrar');
 });
 
 	Route::post('registrarPlanAuditoria','PlanAuditoriaController@save');

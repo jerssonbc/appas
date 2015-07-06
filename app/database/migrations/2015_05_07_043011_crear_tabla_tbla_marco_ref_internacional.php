@@ -31,7 +31,7 @@ class CrearTablaTblaMarcoRefInternacional extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('tbla_marco_ref_internacional');
+		// Schema::drop('tbla_marco_ref_internacional');
 	}
 
 }

@@ -32,7 +32,7 @@ class CrearTablaTblaAuditorCargo extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('tbla_auditor_cargo');
+		// Schema::table('tbla_auditor_cargo');
 	}
 
 }

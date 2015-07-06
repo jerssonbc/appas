@@ -26,10 +26,10 @@ class CrearTablaTblaCargo extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('tbla_cargo', function(Blueprint $table)
-		{
-			//
-		});
+		// Schema::drop('tbla_cargo', function(Blueprint $table)
+		// {
+		// 	//
+		// });
 	}
 
 }

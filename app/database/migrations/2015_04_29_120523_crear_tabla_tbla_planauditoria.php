@@ -33,7 +33,7 @@ class CrearTablaTblaPlanauditoria extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('tbla_planauditoria');
+		// Schema::drop('tbla_planauditoria');
 	}
 
 }

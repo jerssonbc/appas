@@ -30,7 +30,7 @@ class CrearTablaTblaPersonaentrevistar extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('tbla_personaentrevistar');
+		//Schema::drop('tbla_personaentrevistar');
 	}
 
 }

@@ -31,7 +31,7 @@ class CrearTablaTblaMarcoRefNacional extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('tbla_marco_ref_nacional');
+		// Schema::drop('tbla_marco_ref_nacional');
 	}
 
 }

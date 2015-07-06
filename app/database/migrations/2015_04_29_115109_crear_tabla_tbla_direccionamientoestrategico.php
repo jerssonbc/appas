@@ -29,7 +29,7 @@ class CrearTablaTblaDireccionamientoestrategico extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('tbla_direccionamientoestrategico');
+		// Schema::drop('tbla_direccionamientoestrategico');
 	}
 
 }

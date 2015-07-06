@@ -31,7 +31,7 @@ class CrearTablaTblaNormativaInstitucional extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('tbla_normativa_institucional');
+		// Schema::drop('tbla_normativa_institucional');
 	}
 
 }

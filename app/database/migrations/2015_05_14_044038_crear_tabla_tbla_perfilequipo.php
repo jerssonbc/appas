@@ -29,7 +29,7 @@ class CrearTablaTblaPerfilequipo extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('tbla_perfilequipo');
+		//Schema::drop('tbla_perfilequipo');
 	}
 
 }

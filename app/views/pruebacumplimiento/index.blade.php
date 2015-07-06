@@ -1,8 +1,11 @@
 @extends("layouts.plan")
+@section('estilospage')
+	{{HTML::style('css/bootstrap-datepicker.css')}}
+@stop
 @section("modulo")
 <div class="row">
   <div class="col-lg-12">
-    <h2>Equipo Auditor</h2>
+    <h2>Prueba de Cumplimiento</h2>
   </div>
 </div>               
 <hr />
@@ -22,15 +25,76 @@
 		            <th>Fecha Inicio</th>
 		            <th>Fecha Fin</th>
 		            <th>Auditado</th>
-		            <th>Marco Ref/Nac/Nor</th>
 		            <th>Objetivo Especifico</th>
+		            <th>Marco Ref/Nac/Nor</th>
+		            
 		            <th>---</th>
 		        </tr>
 		    </thead>
-		    <!-- <tbody>
-		    		
+		    <tbody>
+		    	<?php $cont=1; ?>
+		    	@for($i=0;$i<count($cuestionariocump);$i++)
+		    		<?php 
+		    			$cuestionario=$cuestionariocump[$i];
+		    			$numrows=$cuestionario["num_mi"]+$cuestionario["num_mn"]+$cuestionario["num_ni"]+1;
+		    		?>
+		    		<tr>
+						<td rowspan="{{$numrows}}">{{$cont++}}</td>
+						<td rowspan="{{$numrows}}">
+							{{$cuestionario["pcumplimiento"]->titulo}}
+						</td>
+						<td rowspan="{{$numrows}}">
+							{{$cuestionario["pcumplimiento"]->fecha_inicio}}
+						</td>
+						<td rowspan="{{$numrows}}">
+							{{$cuestionario["pcumplimiento"]->fecha_fin}}
+						</td>
+						<td rowspan="{{$numrows}}">
+							{{$cuestionario["pcumplimiento"]->personaEntrevistar->apellidos
+							}}, {{$cuestionario["pcumplimiento"]->personaEntrevistar->nombre}}
+						</td>
+						<td rowspan="{{$numrows}}">
+							
+						{{$cuestionario["pcumplimiento"]->objetivoEspecifico->descripcion}}
+						</td>
+						<td></td>
+		    			
+		    		</tr>
+		    	@endfor
+
+		    	@if($cuestionario["num_mi"]>0)
+		    		@foreach($cuestionario['marcos_i'] as $mi)
+								<tr>
+									<td>
+										{{$mi->marcoInternacional->nombre}}
+									</td>
+								</tr>
+			        @endforeach
+
+		    	@endif
+		    	@if($cuestionario["num_mn"]>0)
+		    		@foreach($cuestionario['marcos_n'] as $mn)
+								<tr>
+									<td>
+										{{$mn->marcoNacional->nombre}}
+									</td>
+								</tr>
+			        @endforeach
+
+		    	@endif
+
+		    	@if($cuestionario["num_ni"]>0)
+		    		@foreach($cuestionario['normas_i'] as $ni)
+								<tr>
+									<td>
+										{{$ni->normaInstitucional->nombre}}
+									</td>
+								</tr>
+			        @endforeach
+
+		    	@endif
 		            
-		    </tbody> -->
+		    </tbody>
 		</table>
 	</div>
 </div>
@@ -49,11 +113,11 @@
 		            <td>---</td>
 		        </tr>
 		    </thead>
-		    <!-- <tbody>
-		    		
+		    <tbody>
+		    	
 
 		            
-		    </tbody> -->
+		    </tbody> 
 		</table>
 			
 		<div id="nuevapcumplimiento" class="modal" role="dialog" aria-hidden="true">
@@ -68,13 +132,13 @@
 									
 								</div>
 
-							{{Form::open(array('id'=>'nuevo_cuestionario','class'=>'form-horizontal'))}}
+							{{Form::open(array('id'=>'nuevo_cuestionarioc','class'=>'form-horizontal'))}}
 
 								
 								<div class="form-group">
-									{{Form::label('titulo','Titulo: ',array('class'=>'col-sm-2 control-label'))}}
+									{{Form::label('tituloc','Titulo: ',array('class'=>'col-sm-2 control-label'))}}
 									<div class="col-sm-10">
-									{{Form::text('titulo',null,array('placeholder'=>'Ingrese titulo','class'=>'form-control','maxlength'=>400,'required'=>'true'));
+									{{Form::text('tituloc',null,array('placeholder'=>'Ingrese titulo','class'=>'form-control','maxlength'=>400,'required'=>'true'))
 									}}</div>
 								</div>
 
@@ -85,7 +149,8 @@
 									<div class="col-sm-10">
 										{{
 
-											Form::select('oespecifico',$oespecificos,null,array('class'=>'form-control tamselect','required'=>'true'))
+											Form::select('oespecifico',$oespecificos,null,array('class'=>'form-control tamselect','required'=>'true',
+												"id"=>'idoespecifico'))
 										}}
 									</div>
 								</div>
@@ -104,21 +169,45 @@
 													'id'=>'idtipom'))
 										}}
 									</div>
+
 								</div>
 
 								<div class="form-group">
 									{{
-										Form::label('mutilizado','M a Utilizar:',array('class'=>'col-sm-2 control-label'))
+										Form::label('mutilizado','M/D a Utilizar:',array('class'=>'col-sm-2 control-label'))
+									}}
+									<div class="col-sm-9">
+										{{
+
+											Form::select('mutilizar',array(),null,array('class'=>'form-control tamselect','required'=>'true','id'=>'imutilizar'))
+										}}
+									</div>
+									<div class="col-sm-1">
+									 <button type="button" 
+									 	class="btn btn-success btn-xs btn-line" onClick="agregarMarco();">
+									 	Agregar</button></div>
+									<!-- ,'disabled'=>'true' -->
+								</div>
+
+								<div class="form-group">
+									{{
+										Form::label('mautilizar','M a Utilizar:',
+											array('class'=>'col-sm-2 control-label'))
 									}}
 									<div class="col-sm-10">
 										{{
 
-											Form::select('mutilizado',array(),null,array('class'=>'form-control tamselect','required'=>'true','id'=>'imutilizar'))
+											Form::select('mautilizar',array(),null,array('class'=>'form-control tamselect','multiple'=>'multiple','id'=>'mautilizar'))
 										}}
 									</div>
-									<!-- ,'disabled'=>'true' -->
-								</div>
 
+									<div class="col-sm-offset-10 col-sm-2">
+
+										<button type="button" onClick="removeElement();" class="btn btn-danger btn-line" style="margin:5px;">
+											Quitar
+										</button>
+									</div>
+								</div>
 
 								<div class="form-group">
 									{{
@@ -127,54 +216,68 @@
 									<div class="col-sm-10">
 										{{
 
-											Form::select('personae',$personase,null,array('class'=>'form-control tamselect','required'=>'true'))
+											Form::select('personae',$personase,null,array('class'=>'form-control tamselect','required'=>'true'
+												,'id'=>'ipentrevistar'))
 										}}
 									</div>
 								</div>
 								
 
 								<div class="form-group">
-									{{Form::label('fechai','Fecha Inicio: ',array('class'=>'col-sm-2 control-label'))}}
-									<div class="col-sm-4" id="finicio">
-									{{
+									{{Form::label('fechail','Fecha Inicio: ',array('class'=>'col-sm-2 control-label'))}}
+									<div class="col-sm-4" >
+										<div class="input-group input-append date" id="finicio">
+										{{
 
-										Form::text('fechai',null,array('class'=>'form-control','required'=>'true'));
-									}}</div>
+											Form::text('fechai',null,array('class'=>'form-control','required'=>'true'));
+										}}
+										<span class="input-group-addon add-on"><i class="icon-calendar"></i></span>
+										</div>
+									</div>
+								
+									{{Form::label('fechafl','Fecha Fin: ',array('class'=>'col-sm-2 control-label'))}}
+									<div class="col-sm-4" >
+										<div class="input-group input-append date" id="ffin">
+											{{
 
-									{{Form::label('fechaf','Fecha Inicio: ',array('class'=>'col-sm-2 control-label'))}}
-									<div class="col-sm-4" id="ffin">
-									{{
-
-										Form::text('fechaf',null,array('class'=>'form-control','required'=>'true'));
-									}}<span class="input-group-addon">
-	                                            <span class="glyphicon glyphicon-calendar"></span>
-	                                        </span></div>
+												Form::text('fechaf',null,array('class'=>'form-control','required'=>'true'));
+											}}
+											<span class="input-group-addon add-on"><i class="icon-calendar"></i></span>
+										</div>
+									</div>
 								</div>
 								
 								<div class="form-group">
-									 <div class="col-sm-offset-2 col-sm-10">
-									{{
-										Form::submit('Editar',array('class'=>'btn btn-primary btn-block'));
-									}}</div>
+									 <div class="col-sm-offset-9">
+										{{
+											Form::submit('Guardar',array('class'=>'btn btn-primary '));
+										}}
+										 <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+
+									</div>
 								</div>
 							{{Form::close()}}
 						</div>
 
-						<div class="modal-footer">
-					        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-					    </div>
 					</div>
 				</div>
 		</div>
 	</div>
 </div>
 
+	
+@stop
+
+@section('scriptspage')
+	{{HTML::script('js/ccumplimiento.js')}}
+	{{HTML::script('js/bootstrap-datepicker.js')}}
+	{{HTML::script('js/bootstrap-datepicker.es.min.js')}}
 	<script type="text/javascript">
-	$('#finicio input').datepicker({
+	$('#finicio').datepicker({
 		language:'es',
     	format: "dd/mm/yyyy"
 	});
-	$('#ffin input').datepicker({
+	$('#ffin').datepicker({
 		language:'es',
     	format: "dd/mm/yyyy"
 	});

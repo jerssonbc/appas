@@ -10,5 +10,12 @@
 		{
 			# code...
 		}
+
+		public function personaEntrevistar(){
+			return $this->belongsTo('PersonaEntrevistarModel','personaentrevistar_id');
+		}
+		public function objetivoEspecifico(){
+			return $this->belongsTo('ObjetivosModel','objetivos_especificos_id');
+		}
 	}
  ?>

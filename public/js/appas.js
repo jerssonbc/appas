@@ -48,7 +48,7 @@ function openEditAuditor(ape,nom,tel,celu,id_auditor,id_rol){
 	$("input[name=idauditor]").val(id_auditor);
 	$("input[name=apellidosae]").val(ape);
 	$("input[name=nombreae]").val(nom);
-	$( "#idrolae" ).val(id_rol);
+	$("#idrolae").val(id_rol);
 	$("input[name=dniae]").val($('tr#auditor_'+id_auditor).find("td").eq(2).html());
 	$("input[name=carreraae]").val($('tr#auditor_'+id_auditor).find("td").eq(6).html());
 	$("input[name=emailae]").val($('tr#auditor_'+id_auditor).find("td").eq(3).html());
@@ -134,14 +134,6 @@ $('#edit_Persona').submit(function(event){
 });
 
 
-function openRegCuesCumplimiento()
-{
-	// $('#add_auditor').each (function(){
- //  		this.reset();
-	// });
-	$('#nuevapcumplimiento').modal('show');
-
-}
 function openRegEmpresa()
 {
 	$('#nueva_empresa').each (function(){
@@ -208,3 +200,5 @@ $('#nuevo_plan').submit(function(event){
 				alert("Hubo error");
 			});
 });
+
+
