@@ -193,7 +193,7 @@ $('#nuevo_plan').submit(function(event){
 	var valcance=$("#alcance").val();
 	var vanegocio=$("#anegocio").val();
 
-	alert("dAtos "+vtauditoria);
+	//alert("dAtos "+vtauditoria);
 
 	if(vtauditoria!="" && vrploblematica!="" &&
 		 vogeneral!="" && valcance!="" && vanegocio!="")
@@ -219,5 +219,16 @@ $('#nuevo_plan').submit(function(event){
 
 	}
 });
+
+
+function truncateTables(){
+
+	$.post('deleteTablas',{
+
+	}).done(function(data){
+		alert("Opreación: "+data);
+	})
+	
+}
 
 

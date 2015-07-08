@@ -4,7 +4,13 @@
 @stop
 @section('inicio')
 	<div class="container">
-		<div class="col-md-4"></div>
+		<div class="col-md-4">
+			@if($mensaje)
+				<div class="alert alert-success" id="mensajerespuesta">
+	                 Registro Exitoso, Ingrese con sus datos de Registro.
+	            </div>
+            @endif
+		</div>
 		<div class="col-md-4">
 			<section class="login-form">
 				{{Form::open(array('url'=>'autenticar',

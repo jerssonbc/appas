@@ -113,5 +113,16 @@
 				
 			}
 		}
+
+		public function SaveRespuesta(){
+			if (Request::ajax()) {
+				 PruebaSustantivaModel::where('id','=',Input::get('idp_sustantiva'))
+				 							->where('planauditoria_id','=',Input::get('idplan_actual'))
+				 							->update(array('respuesta' => Input::get('respuesta_ps')));
+
+				 return array('mrespuesta'=>'OK');
+
+			}
+		}
 	}
  ?>

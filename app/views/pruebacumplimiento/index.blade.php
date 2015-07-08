@@ -48,10 +48,16 @@
 								{{$cuestionario["pcumplimiento"]->titulo}}
 							</td>
 							<td rowspan="{{$numrows}}" style="vertical-align:middle;">
-								{{$cuestionario["pcumplimiento"]->fecha_inicio}}
+								{{
+									date("d/m/Y", strtotime($cuestionario["pcumplimiento"]->fecha_inicio))
+									
+								}}
 							</td>
 							<td rowspan="{{$numrows}}" style="vertical-align:middle;">
-								{{$cuestionario["pcumplimiento"]->fecha_fin}}
+								{{
+									date("d/m/Y", strtotime($cuestionario["pcumplimiento"]->fecha_fin))
+									}}
+								
 							</td>
 							<td rowspan="{{$numrows}}" style="vertical-align:middle;">
 								{{$cuestionario["pcumplimiento"]->personaEntrevistar->apellidos

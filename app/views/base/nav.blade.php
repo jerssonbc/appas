@@ -8,7 +8,7 @@
 
             <a href="{{url('empresas')}}" class="navbar-brand">
            Auditoria de Sistemas
-            <img src="assets/img/logo.png" alt="" />
+            <!-- <img src="assets/img/logo.png" alt="" /> -->
                 
                 </a>
         </header>

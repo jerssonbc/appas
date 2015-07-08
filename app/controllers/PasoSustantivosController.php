@@ -22,7 +22,18 @@ class PasoSustantivosController extends BaseController
 				            	 'tbla_pasos_sustantivos.pruebasustantiva_id')
 				            ->get();
 
+				// $psustantiva=PruebaSustantivaModel::where('planauditoria_id',"=",Session::get('id_plan'))
+				// 					->where('id','=',Input::get('idcuestionario'))
+				// 					->get();
+
+				$psustantiva=DB::table('tbla_pruebasustantiva')
+									->where('planauditoria_id',"=",Session::get('id_plan'))
+									->where('id','=',Input::get('idcuestionario'))
+									->get();
+
 				return array(
+						'dpregunta'=>' '.View::make('pruebasustantiva.respuestapregunta',
+									array('pcsustantiva'=>$psustantiva)),
 						'dpasos'=>' '.View::make('pruebasustantiva.listapasos',
 							array('pasos' => $pasos)));
 

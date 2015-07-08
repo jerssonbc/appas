@@ -3,6 +3,7 @@
 	class UsuariosController extends BaseController
 	{
 		protected $layout='layouts.master';
+		public $mensaje="";
 		function __construct()
 		{
 			$this->beforeFilter('validar',array('only'=>(
@@ -34,13 +35,15 @@
 			}else{
 				$usuarios->save();
 				$this->layout->notificacion='Registro Exitoso';
+				$this->mensaje='Registro Exitoso';
 				$this->login();
 			}
 
 		}
 		function login(){
 			$this->layout->notificacion	='Bienvenido al Sistema de Auditoria';
-			$this->layout->modulo 		=View::make('usuarios.login');
+			$this->layout->modulo 		=View::make('usuarios.login',
+								array('mensaje'=>$this->mensaje));
 		}
 		function autenticar(){
 			$data = Input::all();
@@ -48,7 +51,7 @@
 			//Reglas de validacion
 			$reglas=array(
 				'email'    => 'required',
-				'password' => 'required|min:8'
+				'password' => 'required|min:6'
 
 				);
 			//mensajes de reglas de validacion
@@ -126,7 +129,7 @@
 		}
 		function cerrarsesion(){
 			Session::flush();
-			$this->login();
+			return Redirect::to('/');
 		}
 
 	}

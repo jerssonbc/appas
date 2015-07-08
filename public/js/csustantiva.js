@@ -115,6 +115,7 @@ function openAgregarPasoSustantivo(idc){
 	$.post('listarPasoSustantivos',{
 				idcuestionario:idc
 			}).done(function(data){	
+					$('#psustantiva_cuest').html(data['dpregunta']);
 
 					$("#datapasos_sustantivos").html(data["dpasos"]);
 					
@@ -135,9 +136,11 @@ function openAgregarPasoSustantivo(idc){
 
 //Listar Pasos
 function listarPasosSuntantivos(idc){
+	$("#listapasos_sustantivos").html("");
 	$.post('listarPasoSustantivos',{	
 			idcuestionario:idc
 		}).done(function(data){	
+					$('#psustantiva_c').html(data['dpregunta']);
 					$("#listapasos_sustantivos").html(data["dpasos"]);
 					
 		}).fail(function(data){
@@ -183,17 +186,17 @@ $('#nueva_pasoc').submit(function(event){
 
 //funcnion para registrar respuesta de pregunta 
 
-function guardarRespuesta(idp, icc){
+function guardarRespuestaSustantiva(idcues, idplan){
 	//alert('id pregutna'+idp+'---'+'id cuestion'+icc);
 	//alert("Valor "+$('input:radio[name=opc'+idp+icc+']:checked').val());
-	var vrespuesta=$('input:radio[name=opc'+idp+icc+']:checked').val();
+	var vrespuesta=$('input:radio[name=opc'+idcues+idplan+']:checked').val();
 
 	//$("#mensajerespuesta").css("display", "block");
 
-	$.post('registrarRespuestaCumpl',{
-				respuestac:vrespuesta,
-				idpregunta:idp,
-				idcuestionario:icc
+	$.post('registrarRespuestaSustantiva',{
+				idp_sustantiva:idcues,
+				respuesta_ps:vrespuesta,
+				idplan_actual:idplan
 
 			}).done(function(data){	
 				if(data['mrespuesta']=='OK'){

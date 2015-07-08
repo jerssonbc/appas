@@ -8,7 +8,7 @@
 		// }
 		private $regla=array(
 			'email'     => 'unique:tbla_usuario|required|email',
-			'nombre'    => 'required|alpha',
+			'nombre'    => 'required|regex:/^([a-zA-ZñÑáéíóúÁÉÍÓÚ])+((\s*)+([a-zA-ZñÑáéíóúÁÉÍÓÚ]*)*)+$/',
 			'apellidos' => 'required|regex:/^([a-zA-ZñÑáéíóúÁÉÍÓÚ])+((\s*)+([a-zA-ZñÑáéíóúÁÉÍÓÚ]*)*)+$/',
 			'password'  => 'required|min:6'
 			);
@@ -20,7 +20,7 @@
 			'nombre.required'  =>'El nombre es obligatorio',
 			'apellidos.required'=>'El apellido es obligatorio',
 			'password.required'=>'El password es abligatorio',
-			'password.min'     =>'El password debe tener al menos un total de 9 caracteres'
+			'password.min'     =>'El password debe tener al menos un total de 6 caracteres'
 			);
 		private $errores;
 		function validador($data){

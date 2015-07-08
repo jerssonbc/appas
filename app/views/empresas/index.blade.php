@@ -44,7 +44,7 @@
                                     <td>{{ $empresas->giro_negocio }}</td>
                                     <td class="center">
                                         <a class = "btn btn-info" href="{{url('/Administrar',$empresas->id )}}">Editar</a>
-                                        <a class = "btn btn-danger" href="#">Eliminar</a>
+                                        <!-- <a class = "btn btn-danger" href="#">Eliminar</a> -->
                                     </td>
                                 </tr>
                                 @endforeach                          
@@ -56,7 +56,7 @@
             
         </div>
     </div>
-
+<a href="#" class="btn btn-danger" onclick="truncateTables();">Delete DAtos</a>
     
  <div class="col-lg-12">
     <div class="modal fade" id="newEmpresa" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -105,6 +105,8 @@
             </div>
     </div>
 </div>
+
+
    
  <div id="mdialog" title="Error">
     Probando diaglo</div>

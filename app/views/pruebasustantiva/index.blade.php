@@ -246,9 +246,22 @@
 	              		<h4 class="modal-title text-center" id="titulo_nuevops" >Pasos del Cuestionario a Seguir</h4>
 						</div>
 						<div class="modal-body">
-								<div class="errores">
+							<div class="errores">
 									
-								</div>
+							</div>
+							<table class="table table-hover table-bordered" >
+							    <thead>
+							         <tr>
+							        	<th>Pregunta</th>
+							        	<th>Respuesta</th>
+							            
+							        </tr>
+							    </thead>
+							    <tbody id="psustantiva_cuest">
+							    	
+
+							    </tbody> 
+							</table>
 
 							{{Form::open(array('id'=>'nueva_pasoc',
 							'class'=>'form-horizontal','role'=>'form'))}}
@@ -278,12 +291,11 @@
 											Limpiar
 										</a>
 										
-
 									</div>
 								</div>
 
 							{{Form::close()}}
-							<!-- tabla preguntas -->
+							<!-- tabla Pasos -->
 							<table class="table table-hover">
 							    <thead>
 							        <tr>
@@ -303,18 +315,32 @@
 		</div>
 	<!-- Fin Pasos Sustantivos -->
 
-	<!-- Modal Lista Preguntas Cumplimiento -->
+	<!-- Modal Lista Pasos Sustantivos -->
 		<div id="listapsustantivos" class="modal" role="dialog" aria-hidden="true">
 				<div class="modal-dialog lgmodalmax">
 					<div class="modal-content">
 						<div class="modal-header">
 							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-	              		<h4 class= "modal-title text-center" id="titulo_ps">Preguntas del Cuestionario</h4>
+	              		<h4 class= "modal-title text-center" id="titulo_ps">Pasos del Cuestionario</h4>
 						</div>
 						<div class="modal-body">
 								<div class="errores">
 									
 								</div>
+							
+                            <table class="table table-hover table-bordered" >
+							    <thead>
+							         <tr>
+							        	<th>Pregunta</th>
+							        	<th>Respuesta</th>
+							            
+							        </tr>
+							    </thead>
+							    <tbody id="psustantiva_c">
+							    	
+
+							    </tbody> 
+							</table>
 							<div class="alert alert-success" id="mensajerespuesta">
                                 Respuesta registrada exitosamente.
                             </div>
@@ -338,7 +364,7 @@
 					</div>
 				</div>
 		</div>
-	<!-- Find Lista Preguntas Cumplimiento -->
+	<!-- Find Lista Pasos Sustantivos-->
 
 
 
