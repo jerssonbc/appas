@@ -89,8 +89,8 @@
 						@for($i=0; $i<count($rolyperfiles); $i++)
 							<?php $rp=$rolyperfiles[$i];?>
 							<tr> 
-								 <td rowspan="{{$rp['numperfiles']}}">{{$cont++}}</td>
-								 <td rowspan="{{$rp['numperfiles']}}"><span id="spanrp_{{$rp['rol']->id}}">{{$rp['rol']->rol}}</span></td>
+								 <td rowspan="{{$rp['numperfiles']}}" style="vertical-align:middle;">{{$cont++}}</td>
+								 <td rowspan="{{$rp['numperfiles']}}" style="vertical-align:middle;"><span id="spanrp_{{$rp['rol']->id}}">{{$rp['rol']->rol}}</span></td>
 								 <td></td>
 								 <td></td>
 							</tr>

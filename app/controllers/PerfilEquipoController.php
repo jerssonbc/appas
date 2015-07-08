@@ -12,16 +12,20 @@
 
 		function listarPefil(){
 			
-			$roles=DB::table('tbla_perfilequipo')->where('planauditoria_id',Session::get('id_plan'))->get();
-			$numroles=DB::table('tbla_perfilequipo')->where('planauditoria_id',Session::get('id_plan'))->count();
+			$roles=DB::table('tbla_perfilequipo')->where('planauditoria_id',
+							Session::get('id_plan'))->get();
+			$numroles=DB::table('tbla_perfilequipo')->where('planauditoria_id',
+				      		Session::get('id_plan'))->count();
 
-			$roles2=DB::table('tbla_perfilequipo')->where('planauditoria_id',Session::get('id_plan'))->get();
+			$roles2=DB::table('tbla_perfilequipo')->where('planauditoria_id',
+							Session::get('id_plan'))->get();
 			$rolyperfil=array();
 			foreach ($roles2 as $rol2) {
 				$perfilDeRol=PerfilModel::where('perfilequipo_id','=',$rol2->id)->get();
 				$numperfiles=PerfilModel::where('perfilequipo_id','=',$rol2->id)->count();
 				$numperfiles=$numperfiles+1;
-				array_push($rolyperfil, array('rol' => $rol2,'perfil'=>$perfilDeRol,'numperfiles'=>$numperfiles));
+				array_push($rolyperfil, array('rol' => $rol2,'perfil'=>
+							$perfilDeRol,'numperfiles'=>$numperfiles));
 			}
 			return View::make('perfil.index',array('roles'=>$roles,'numroles'=>$numroles,
 								'rolyperfiles'=>$rolyperfil));

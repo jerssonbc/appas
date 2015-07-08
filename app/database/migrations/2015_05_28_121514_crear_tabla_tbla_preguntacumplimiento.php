@@ -16,8 +16,8 @@ class CrearTablaTblaPreguntacumplimiento extends Migration {
 		{
 			$table->increments('id');
 			$table->text('pregunta');
-			$table->char('respuesta',4);
-			$table->text('obervaciones');
+			$table->char('respuesta',4)->nullable();
+			$table->text('obervaciones')->nullable();
 			$table->unsignedInteger('pruebacumplimiento_id');
 			$table->foreign('pruebacumplimiento_id')->references('id')->on('tbla_pruebacumplimiento');
 		});

@@ -4,16 +4,13 @@
 	*/
 	class PruebaCumplimientoController extends BaseController
 	{
-		protected $layout='layouts.plan';
+		
 		function __construct()
 		{
 			# code...
 		}
 		function listarPCumplimiento(){
-			// $auditores=AuditorModel::where('planauditoria_id',Session::get('id_plan'))->get();
-			// $roles=PerfilEquipoModel::where('planauditoria_id',Session::get('id_plan'))
-			// 						->orderBy('rol')->lists('rol','id');
-
+			
 			$pruebasCumplimiento=PruebaCumplimientoModel::where('planauditoria_id',"=",Session::get('id_plan'))
 									->get();
 
@@ -101,7 +98,31 @@
 					# code...
 				}
 
-				return array('error'=>'0');
+				$pruebasCumplimiento2=PruebaCumplimientoModel::where('planauditoria_id',"=",Session::get('id_plan'))
+									->get();
+
+				$marcosutilizados=array();
+
+				foreach ($pruebasCumplimiento2 as $pc ) {
+					$minternacionales=DetaCumpInternacionalModel::where('pruebacumplimiento_id','=',$pc->id)->get();
+					$num_mi=DetaCumpInternacionalModel::where('pruebacumplimiento_id','=',$pc->id)->count();
+					
+					$mnacionales=DetaCumpNacionalModel::where('pruebacumplimiento_id','=',$pc->id)->get();
+					$num_mn=DetaCumpNacionalModel::where('pruebacumplimiento_id','=',$pc->id)->count();
+
+					$ninstitucionales=DetaCumpInstitucionalModel::where('pruebacumplimiento_id','=',$pc->id)->get();
+					$num_ni=DetaCumpInstitucionalModel::where('pruebacumplimiento_id','=',$pc->id)->count();
+
+					array_push($marcosutilizados, array('pcumplimiento'=>$pc,
+										'num_mi'=>$num_mi,'marcos_i'=>$minternacionales,
+										'num_mn'=>$num_mn,'marcos_n'=>$mnacionales,
+										'num_ni'=>$num_ni,'normas_i'=>$ninstitucionales));
+				}
+
+				return array('error'=>'0',
+						'dcuestionarios'=>' '.View::make('pruebacumplimiento.listacuestionarioscumpl',
+						array('cuestionariocump'=>$marcosutilizados)));
+				
 
 				
 			}

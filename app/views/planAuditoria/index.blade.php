@@ -56,7 +56,7 @@
 </div>
 
  <div class="col-lg-12">
-    <div class="modal fade" id="newPlan" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal fade" id="newPlan" role="dialog" aria-hidden="true">
             <div class="modal-dialog lgmodal">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -64,50 +64,46 @@
                         <h4 class="modal-title" id="H4">Nuevo Plan</h4>
                     </div>
                     <div class="modal-body">
-                       {{Form::open(array('id'=>'nuevo_plan','class'=>'form-horizontal newplanauditoria','role'=>'form'))}}
+                        {{Form::open(array('id'=>'nuevo_plan','class'=>'form-horizontal newplanauditoria','role'=>'form'))}}
 
-                        <div class="form-group">
-                            {{Form::label('tauditoria','Titulo Auditoria:',array('class'=>'col-sm-2'))}}
-                            <div class="col-sm-10">
-                                 {{ Form::text('tauditoria',null,array('class'=>'form-control','placeholder'=>'Ingrese Titulo de Auditoria','required'=>'true','id'=>'tauditoria')) }}
-                            </div>   
-                        </div>
-                        <div class="form-group">
-                            {{Form::label('rploblematica','Realidad Problemática:',array('class'=>'col-sm-2'))}}
-                            <div class="col-sm-10">
-                            {{ Form::textarea('rploblematica',null,array('class'=>'form-control','placeholder'=>'Ingrese Realidad Problemática','required'=>'true','id'=>'rploblematica')) }}
+                            <div class="form-group">
+                                {{Form::label('tauditoria','Titulo Auditoria:',array('class'=>'col-sm-2'))}}
+                                <div class="col-sm-10">
+                                     {{ Form::text('tauditoria',null,array('class'=>'form-control','placeholder'=>'Ingrese Titulo de Auditoria','required'=>'true','id'=>'tauditoria')) }}
+                                </div>   
                             </div>
-                        </div>
-
-                        <div class="form-group">
-                            {{Form::label('ogeneral','Objetivo General:',array('class'=>'col-sm-2'))}}
-                            <div class="col-sm-10">
-                                 {{ Form::text('ogeneral',null,array('class'=>'form-control','placeholder'=>'Ingrese Objetivo General','required'=>'true','id'=>'ogeneral')) }}
-                            </div>   
-                        </div>
-                        <div class="form-group">
-                            {{Form::label('alcance','Alcance:',array('class'=>'col-sm-2'))}}
-                            <div class="col-sm-10">
-                            {{ Form::textarea('alcance',null,array('class'=>'form-control','placeholder'=>'Ingrese Alcance','required'=>'true','id'=>'alcance')) }}
-                            </div>
-                        </div>
-                            
-                        <div class="form-group">
-                            {{Form::label('anegocio','Alineamiento Del Negocio:',array('class'=>'col-sm-2'))}}
-                            <div class="col-sm-10">
-                            {{ Form::textarea('anegocio',null,array('class'=>'form-control','placeholder'=>'Ingrese Alineamiento al Negocio','required'=>'true','id'=>'anegocio')) }}
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                                <div class="col-sm-offset-9">
-                                    {{
-                                        Form::submit('Registrar',array('class'=>'btn btn-primary'))
-                                    }}
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                            <div class="form-group">
+                                {{Form::label('rploblematica','Realidad Problemática:',array('class'=>'col-sm-2'))}}
+                                <div class="col-sm-10">
+                                {{ Form::textarea('rploblematica',null,array('class'=>'form-control','placeholder'=>'Ingrese Realidad Problemática','required'=>'true','id'=>'rploblematica')) }}
                                 </div>
-                                
-                        </div>
+                            </div>
+                            <div class="form-group">
+                                {{Form::label('ogeneral','Objetivo General:',array('class'=>'col-sm-2'))}}
+                                <div class="col-sm-10">
+                                     {{ Form::text('ogeneral',null,array('class'=>'form-control','placeholder'=>'Ingrese Objetivo General','required'=>'true','id'=>'ogeneral')) }}
+                                </div>   
+                            </div>
+                            <div class="form-group">
+                                {{Form::label('alcance','Alcance:',array('class'=>'col-sm-2'))}}
+                                <div class="col-sm-10">
+                                {{ Form::textarea('alcance',null,array('class'=>'form-control','placeholder'=>'Ingrese Alcance','required'=>'true','id'=>'alcance')) }}
+                                </div>
+                            </div>   
+                            <div class="form-group">
+                                {{Form::label('anegocio','Alineamiento Del Negocio:',array('class'=>'col-sm-2'))}}
+                                <div class="col-sm-10">
+                                {{ Form::textarea('anegocio',null,array('class'=>'form-control','placeholder'=>'Ingrese Alineamiento al Negocio','required'=>'true','id'=>'anegocio')) }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                    <div class="col-sm-offset-9">
+                                        {{
+                                            Form::submit('Registrar',array('class'=>'btn btn-primary'))
+                                        }}
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                    </div>                               
+                            </div>
                    
                         {{Form::close()}}
                     </div>
@@ -134,7 +130,7 @@
     <script type="text/javascript">
     $(document).ready(function(){
         $('#dataTables-planes').dataTable();
-        formValidation();
+        //formValidation();
         $("#mdialog" ).dialog({
                autoOpen: false, 
                modal: true,

@@ -53,8 +53,8 @@
         </a>
     </li>
 
-    <li class="">
-       <a href="{{url('#')}}">
+    <li class="{{ Request::is('pruebasSustantivas*') ? 'active' : ''}}">
+       <a href="{{url('/pruebasSustantivas')}}">
            <i class="icon-suitcase"></i> Pruebas Sustantivas
         </a>
     </li>

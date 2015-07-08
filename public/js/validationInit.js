@@ -59,7 +59,7 @@
     });
 
 
-    $('#nuevo_plan').validate({
+    $('#pppp').validate({
         rules: {
             tauditoria:'required',
             rploblematica:'required',

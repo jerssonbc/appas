@@ -1,19 +1,19 @@
 <?php 
-	/**
-	* 
-	*/
-	class PreguntaCumplimientoModel extends Eloquent
-	{
+/**
+* 
+*/
+class PasoSustantivoModel extends Eloquent
+{
 		public $timestamps = false;
-		protected $table='tbla_preguntacumplimiento';
+		protected $table='tbla_pasos_sustantivos';
 		
 		private $regla=array(
-			'pregunta'     => 'required'
+			'descripcion'     => 'required'
 			
 			);
 		private $mensajes=array(
 
-			'pregunta.required'   =>'Pregunta es campo Obligatorio'
+			'descripcion.required'   =>'Descripción de paso es campo Obligatorio'
 				
 			);
 		private $errores;
@@ -29,5 +29,6 @@
 		function mostrar_errores(){
 			return $this->errores;
 		}
-	}
+
+}
  ?>

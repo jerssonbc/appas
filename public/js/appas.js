@@ -109,6 +109,14 @@ $(document).ready(function(){
 			$('#imutilizar').append(data);
 		});
 	});
+
+	$('#idtipom_cs').change(function (){
+		var tipom_cs=$('#idtipom_cs option:selected').val();
+		$.post('marcodetipo/'+tipom_cs).done(function(data){
+			$('#imutilizar_cs').html('');
+			$('#imutilizar_cs').append(data);
+		});
+	});
 	
 });
 $('#edit_Persona').submit(function(event){
@@ -178,12 +186,19 @@ function openRegPlan()
 
 $('#nuevo_plan').submit(function(event){
 	event.preventDefault();
+	
 	var vtauditoria=$("input[name=tauditoria]").val();
 	var vrploblematica=$("#rploblematica").val();
 	var vogeneral=$("input[name=ogeneral]").val();
 	var valcance=$("#alcance").val();
 	var vanegocio=$("#anegocio").val();
-	$.post('registrarPlanAuditoria',{tauditoria:vtauditoria,
+
+	alert("dAtos "+vtauditoria);
+
+	if(vtauditoria!="" && vrploblematica!="" &&
+		 vogeneral!="" && valcance!="" && vanegocio!="")
+	{
+		$.post('registrarPlanAuditoria',{tauditoria:vtauditoria,
 				rploblematica:vrploblematica,ogeneral:vogeneral,
 				alcance:valcance,anegocio:vanegocio
 			}).done(function(data){	
@@ -199,6 +214,10 @@ $('#nuevo_plan').submit(function(event){
 			}).fail(function(data){
 				alert("Hubo error");
 			});
+	}else{
+		alert("Tengo datos");
+
+	}
 });
 
 

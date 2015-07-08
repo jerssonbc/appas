@@ -30,6 +30,10 @@ body{
 	width: 900px;
 }
 
+.lgmodalmax {
+	width: 960px;
+}
+
 /*estilo para nuevo login*/
 
 .login-form {
@@ -70,3 +74,8 @@ form[role=login] > div {
 		  z-index: 2;
 		}
 }
+
+#mensajerespuesta{
+	display: none;
+}
+

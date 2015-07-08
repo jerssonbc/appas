@@ -1,11 +1,11 @@
 var marcosutilizar;
 function agregarMarco(){
-	var vmarco=$('#imutilizar').val();
+	var vmarco=$('#imutilizar_cs').val();
 
 	if(vmarco>0){
-		var vtmarco=$("#idtipom").val();
+		var vtmarco=$("#idtipom_cs").val();
 	
-		var vtextom=$('#imutilizar option:selected').text();
+		var vtextom=$('#imutilizar_cs option:selected').text();
 		var cod=""+vtmarco+vmarco;
 
 		var flag=0;
@@ -17,7 +17,7 @@ function agregarMarco(){
 		});
 		if(flag==0){
 			marcosutilizar.push({codigo:cod,tp:vtmarco,marco:vmarco});
-			$("#mautilizar").append('<option value="'+cod+'" >'+vtextom+'</option>');
+			$("#mautilizar_cs").append('<option value="'+cod+'" >'+vtextom+'</option>');
 		}else{
 			alert("El marco ya ha sido seleccionado");
 		}
@@ -36,10 +36,10 @@ function agregarMarco(){
 
 function removeElement(){
 
-	var idmarco=$("#mautilizar option:selected").val();
+	var idmarco=$("#mautilizar_cs option:selected").val();
 	//alert("idMarco"+idmarco);
 	if(idmarco !=undefined){
-		$("#mautilizar").find('option[value="'+idmarco+'"]').remove();  
+		$("#mautilizar_cs").find('option[value="'+idmarco+'"]').remove();  
 
 		marcosutilizar = $.grep(marcosutilizar, function(e){ 
 	 		 return e.codigo != idmarco; 
@@ -49,41 +49,41 @@ function removeElement(){
 	}
 }
 
-//función para mostra el pop up de registro de cuestionario de cumplimiento
-function openRegCuesCumplimiento()
+//función para mostra el pop up de registro de cuestionario sustantivo
+function openRegCuestSustantivo()
 {
-	$('#nuevo_cuestionarioc').each (function(){
+	$('#nuevo_cuestionarios').each (function(){
   		this.reset();
 	});
 
 	
-	$('#nuevapcumplimiento').modal('show');
+	$('#nuevapsustantiva').modal('show');
 	marcosutilizar=new Array();
 
 }
-//funcion para grabar un nuevo custionario de cumplimiento
-$('#nuevo_cuestionarioc').submit(function(event){
+//funcion para grabar un nuevo custionario de sustantivo
+$('#nuevo_cuestionarios').submit(function(event){
 	event.preventDefault();
-	var vtitulo=$("input[name=tituloc]").val();
-	var voespecifico=$("#idoespecifico").val();
+
+	var vtitulo=$("input[name=titulo_cs]").val();
+	var vpregunta=$("input[name=pregunta_cs]").val();
+	var voespecifico=$("#idoespecifico_cs").val();
 	
-	var vpentrevistar=$("#ipentrevistar").val();
+	var vresponsable=$("#responsable_cs").val();
 
-	var vfechai= cambiarFormato($("input[name=fechai]").val());
-	var vfechaf=cambiarFormato($("input[name=fechaf]").val());
 
-	
-
-	$.post('registrarCCumplimiento',{tituloc:vtitulo,
-				oespecifico:voespecifico,
-				mutilizar:marcosutilizar,pentrevistar:vpentrevistar,
-				fechai:vfechai,fechaf:vfechaf
+	$.post('registrarCSustantivo',{
+				titulo_cs:vtitulo,
+				oespecifico_cs:voespecifico,
+				mutilizar:marcosutilizar,
+				responsable:vresponsable,
+				pregunta:vpregunta
 			}).done(function(data){	
 				if(data['error']=='0'){
 					alert("Registro exitos");
-					$('#nuevapcumplimiento').modal('hide');
+					$('#nuevapsustantiva').modal('hide');
 					// $("#cdialog").dialog( "open" );
-					$("#datacuestionarios").html(data["dcuestionarios"]);
+					$("#datacsustantivos").html(data["dcuestionarios"]);
 				}else{
 					// $('#newPlan').modal('hide');
 					// $("#mdialog" ).html(data['edata']);
@@ -102,73 +102,72 @@ function cambiarFormato(fecha){
 	return newfecha;
 }
 
-function limpiarCampoPregunta(){
-	$("#preguntac").val('');
-	$("#preguntac").focus();
+function limpiarCampoPaso(){
+	$("#pasoc").val('');
+	$("#pasoc").focus();
 
 }
 
-function openAgregarPreguntaCumplimiento(idc){
+function openAgregarPasoSustantivo(idc){
 
-	$("#datapreguntacumpl").html("");
+	$("#datapasos_sustantivos").html("");
 	
-	$.post('listarPreguntaCumpl',{
-				
+	$.post('listarPasoSustantivos',{
 				idcuestionario:idc
 			}).done(function(data){	
 
-					$("#datapreguntacumpl").html(data["dpreguntas"]);
+					$("#datapasos_sustantivos").html(data["dpasos"]);
 					
 			}).fail(function(data){
 				alert("Hubo error"+data);
 			});
 
-	$("#id_cuestionario").val(idc);
+	$("#ids_cuestionario").val(idc);
 
-	$("#datacuestionarios tr").click(function(){
-		var titlecc=$(this).find("td").eq(1).html();
-		$('h4#titulo_nuevopc').text(titlecc);
+	$("#datacsustantivos tr").click(function(){
+		var titlecs=$(this).find("td").eq(1).html();
+		$('h4#titulo_nuevops').text(titlecs);
 	});
 
-	$("#pcumplimiento").modal("show");
+	$("#psustantivo").modal("show");
 
 }
 
-//Listar Preguntas
-function listarPreguntasCumplimiento(idc){
-	$.post('listarPreguntaCumpl',{	
+//Listar Pasos
+function listarPasosSuntantivos(idc){
+	$.post('listarPasoSustantivos',{	
 			idcuestionario:idc
 		}).done(function(data){	
-					$("#listapreguntacumpl").html(data["dpreguntas"]);
+					$("#listapasos_sustantivos").html(data["dpasos"]);
 					
 		}).fail(function(data){
 				alert("Hubo error"+data);
 	});
 	$("#id_cuestionariolista").val(idc);
-	$("#datacuestionarios tr").click(function(){
+	$("#datacsustantivos tr").click(function(){
 		var titlecc=$(this).find("td").eq(1).html();
-		$('h4#titulo_pc').text(titlecc);
+		$('h4#titulo_ps').text(titlecc);
 	});
 
-	
 
-	$("#listapcumplimiento").modal("show");
+	$("#listapsustantivos").modal("show");
 
 }
 
-//funcion para grabar un pregunta cumplimiento 
-$('#nueva_preguntac').submit(function(event){
+//funcion para grabar un paso sustantivo 
+$('#nueva_pasoc').submit(function(event){
 	event.preventDefault();
-	var vpregunta=$("#preguntac").val();
-	var vidcuestionarioc=$("#id_cuestionario").val();
+	var vdescripcion=$("#pasoc").val();
+	var vidcuestionarioc=$("#ids_cuestionario").val();
 
-	$.post('registrarPreguntaCumpl',{
-				preguntac:vpregunta,
+	$.post('registrarPasoSustantivo',{
+				descripcion:vdescripcion,
 				idcuestionario:vidcuestionarioc
 			}).done(function(data){	
 				if(data['error']=='0'){
 					alert("Registro exitoso");
-					$("#datapreguntacumpl").html(data["dpreguntas"]);
+					$("#datapasos_sustantivos").html(data["dpasos"]);
+					limpiarCampoPaso();
 				}else{
 
 					alert(data['edata']);

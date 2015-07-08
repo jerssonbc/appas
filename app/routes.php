@@ -111,6 +111,20 @@ Route::group(array('before'=>'validar'),function(){
 	Route::get('pruebasCumplimiento','PruebaCumplimientoController@listarPCumplimiento');
 	Route::get('nuevoCuestionarioCumplimiento','PruebaCumplimientoController@nuevaPCumplimiento');
 	Route::post('registrarCCumplimiento','PruebaCumplimientoController@registrar');
+
+	Route::post('registrarPreguntaCumpl','PreguntaCumplimientoController@Save');
+	Route::post('listarPreguntaCumpl','PreguntaCumplimientoController@ListPreguntas');
+	Route::post('registrarRespuestaCumpl','PreguntaCumplimientoController@SaveRespuesta');
+	Route::post('registrarObservacionCumpl','PreguntaCumplimientoController@SaveObservacion');
+
+	Route::get('pruebasSustantivas','PruebaSustantivaController@ListPSusantivas');
+	Route::post('registrarCSustantivo','PruebaSustantivaController@Save');
+
+	Route::post('listarPasoSustantivos','PasoSustantivosController@ListPasos');
+	Route::post('registrarPasoSustantivo','PasoSustantivosController@SavePaso');
+	
+
+	
 });
 
 	Route::post('registrarPlanAuditoria','PlanAuditoriaController@save');
