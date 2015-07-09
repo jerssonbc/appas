@@ -79,3 +79,41 @@ form[role=login] > div {
 	display: none;
 }
 
+tr.objetivo1{
+	background-color: #EFFBB8;
+}
+
+tr.objetivo2{
+	background-color: #B8FBCD;
+}
+
+tr.objetivo3{
+	background-color: #FCC4CD;
+}
+
+tr.objetivo4{
+	background-color: #D1FCF7;
+}
+
+.obj1, .obj2, .obj3, .obj4{
+	height: 120px;
+	width: 220px;
+	display: inline-block;
+	padding: 5px;
+	vertical-align: middle;
+	border-radius: 5px;
+}
+
+.obj1{
+	background-color: #EFFBB8;
+}
+.obj2{
+	background-color: #B8FBCD;
+}
+.obj3{
+	background-color: #FCC4CD;
+}
+.obj4{
+	background-color: #D1FCF7;
+}
+

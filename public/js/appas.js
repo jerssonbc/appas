@@ -221,14 +221,6 @@ $('#nuevo_plan').submit(function(event){
 });
 
 
-function truncateTables(){
 
-	$.post('deleteTablas',{
-
-	}).done(function(data){
-		alert("Opreación: "+data);
-	})
-	
-}
 
 

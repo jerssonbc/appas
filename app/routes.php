@@ -123,35 +123,8 @@ Route::group(array('before'=>'validar'),function(){
 	
 	Route::post('listarPasoSustantivos','PasoSustantivosController@ListPasos');
 	Route::post('registrarPasoSustantivo','PasoSustantivosController@SavePaso');
+	Route::post('registrarCumplimientoPaso','PasoSustantivosController@SaveCumplimiento');
 
-
-	Route::post('deleteTablas',function(){
-		//DB::table('tbla_pasos_sustantivos')->truncate();
-		//$valor=DB::table('tbla_pruebasustantiva')->truncate();
-		//$valor=DB::table('tbla_deta_ps_mi')->truncate();
-		//$valor=DB::table('tbla_deta_ps_mn')->truncate();
-		//$valor=DB::table('tbla_deta_ps_ni')->truncate();
-
-		//$valor=DB::table('tbla_deta_pc_mi')->truncate();
-		//$valor=DB::table('tbla_deta_pc_mn')->truncate();
-		//$valor=DB::table('tbla_deta_pc_ni')->truncate();
-		
-		//$valor=DB::table('tbla_pruebacumplimiento')->truncate();
-		$valor=DB::table('tbla_preguntacumplimiento')->truncate();
-		$valor=DB::table('tbla_personaentrevistar')->truncate();
-		$valor=DB::table('tbla_auditor')->truncate();
-		
-		
-		/*$valor=DB::table('')->truncate();
-		$valor=DB::table('')->truncate();*/
-
-
-
-
-		return "Eliminado filas".$valor;
-	});
-
-	
 
 	
 });

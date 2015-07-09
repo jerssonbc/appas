@@ -6,7 +6,26 @@
 
 			$numrows=$cuestionario["num_mi"]+$cuestionario["num_mn"]+$cuestionario["num_ni"]+1;
 		?>
-		<tr class="alinea-tdcentro" >
+		<tr class="alinea-tdcentro 
+			    			@if($cuestionario['pcumplimiento']->objetivos_especificos_id==1)
+			    			 	objetivo1 
+			    			@else
+			    				@if($cuestionario['pcumplimiento']->objetivos_especificos_id==2)
+			    					objetivo2
+			    				@else
+			    					@if($cuestionario['pcumplimiento']->objetivos_especificos_id==3)
+			    						objetivo3
+				    				@else
+				    					@if($cuestionario['pcumplimiento']->objetivos_especificos_id==4)
+			    						objetivo4
+					    				@else
+					    					
+					    				@endif
+				    					
+				    				@endif
+
+			    				@endif
+			    			@endif " >
 			<td rowspan="{{$numrows}}" style="vertical-align:middle;">{{$cont++}}</td>
 
 			<td rowspan="{{$numrows}}" style="vertical-align:middle;">
@@ -47,7 +66,26 @@
 		</tr>
 		@if($cuestionario["num_mi"]>0)
     		@foreach($cuestionario['marcos_i'] as $mi)
-						<tr>
+						<tr class="alinea-tdcentro 
+			    			@if($cuestionario['pcumplimiento']->objetivos_especificos_id==1)
+			    			 	objetivo1 
+			    			@else
+			    				@if($cuestionario['pcumplimiento']->objetivos_especificos_id==2)
+			    					objetivo2
+			    				@else
+			    					@if($cuestionario['pcumplimiento']->objetivos_especificos_id==3)
+			    						objetivo3
+				    				@else
+				    					@if($cuestionario['pcumplimiento']->objetivos_especificos_id==4)
+			    						objetivo4
+					    				@else
+					    					
+					    				@endif
+				    					
+				    				@endif
+
+			    				@endif
+			    			@endif ">
 							<td>
 								{{$mi->marcoInternacional->nombre}}
 							</td>
@@ -57,7 +95,26 @@
     	@endif
     	@if($cuestionario["num_mn"]>0)
     		@foreach($cuestionario['marcos_n'] as $mn)
-						<tr>
+						<tr class="alinea-tdcentro 
+			    			@if($cuestionario['pcumplimiento']->objetivos_especificos_id==1)
+			    			 	objetivo1 
+			    			@else
+			    				@if($cuestionario['pcumplimiento']->objetivos_especificos_id==2)
+			    					objetivo2
+			    				@else
+			    					@if($cuestionario['pcumplimiento']->objetivos_especificos_id==3)
+			    						objetivo3
+				    				@else
+				    					@if($cuestionario['pcumplimiento']->objetivos_especificos_id==4)
+			    						objetivo4
+					    				@else
+					    					
+					    				@endif
+				    					
+				    				@endif
+
+			    				@endif
+			    			@endif " >
 							<td>
 								{{$mn->marcoNacional->nombre}}
 							</td>
@@ -67,7 +124,26 @@
     	@endif
     	@if($cuestionario["num_ni"]>0)
     		@foreach($cuestionario['normas_i'] as $ni)
-						<tr>
+						<tr class="alinea-tdcentro 
+			    			@if($cuestionario['pcumplimiento']->objetivos_especificos_id==1)
+			    			 	objetivo1 
+			    			@else
+			    				@if($cuestionario['pcumplimiento']->objetivos_especificos_id==2)
+			    					objetivo2
+			    				@else
+			    					@if($cuestionario['pcumplimiento']->objetivos_especificos_id==3)
+			    						objetivo3
+				    				@else
+				    					@if($cuestionario['pcumplimiento']->objetivos_especificos_id==4)
+			    						objetivo4
+					    				@else
+					    					
+					    				@endif
+				    					
+				    				@endif
+
+			    				@endif
+			    			@endif " >
 							<td>
 								{{$ni->normaInstitucional->nombre}}
 							</td>

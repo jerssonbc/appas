@@ -55,10 +55,11 @@ function openRegCuestSustantivo()
 	$('#nuevo_cuestionarios').each (function(){
   		this.reset();
 	});
-
-	
-	$('#nuevapsustantiva').modal('show');
 	marcosutilizar=new Array();
+	$("#imutilizar_cs").html("");
+	$("#mautilizar_cs").html("");
+	$('#nuevapsustantiva').modal('show');
+	
 
 }
 //funcion para grabar un nuevo custionario de sustantivo
@@ -71,8 +72,9 @@ $('#nuevo_cuestionarios').submit(function(event){
 	
 	var vresponsable=$("#responsable_cs").val();
 
-
-	$.post('registrarCSustantivo',{
+	var t=marcosutilizar.length;
+	if(t>0){
+		$.post('registrarCSustantivo',{
 				titulo_cs:vtitulo,
 				oespecifico_cs:voespecifico,
 				mutilizar:marcosutilizar,
@@ -93,6 +95,12 @@ $('#nuevo_cuestionarios').submit(function(event){
 			}).fail(function(data){
 				alert("Hubo error"+data);
 			});
+
+	}else{
+		alert("Seleccione almenos un marco utilizado.");
+	}
+
+	
 });
 
 //cambiar formato de fecha
@@ -189,7 +197,7 @@ $('#nueva_pasoc').submit(function(event){
 function guardarRespuestaSustantiva(idcues, idplan){
 	//alert('id pregutna'+idp+'---'+'id cuestion'+icc);
 	//alert("Valor "+$('input:radio[name=opc'+idp+icc+']:checked').val());
-	var vrespuesta=$('input:radio[name=opc'+idcues+idplan+']:checked').val();
+	var vrespuesta=$('input:radio[name=opcps'+idcues+idplan+']:checked').val();
 
 	//$("#mensajerespuesta").css("display", "block");
 
@@ -197,6 +205,35 @@ function guardarRespuestaSustantiva(idcues, idplan){
 				idp_sustantiva:idcues,
 				respuesta_ps:vrespuesta,
 				idplan_actual:idplan
+
+			}).done(function(data){	
+				if(data['mrespuesta']=='OK'){
+					$('#mensajerespuesta').fadeIn(1000);
+					setTimeout(function(){
+							$('#mensajerespuesta').fadeOut('slow');
+
+					},2000);
+					
+				}else{	
+					alert("hubao error");
+				}	
+			}).fail(function(data){
+				alert("Hubo error"+data);
+			});
+
+}
+
+function guardarCumplimiento(idpaso, idcuest_sustanti){
+	//alert('id pregutna'+idpaso+'---'+'id cuestion'+idcuest_sustanti);
+	//alert("Valor "+$('input:radio[name=opc'+idpaso+idcuest_sustanti+']:checked').val());
+	var vrespuesta=$('input:radio[name=opc'+idpaso+idcuest_sustanti+']:checked').val();
+
+	//$("#mensajerespuesta").css("display", "block");
+
+	$.post('registrarCumplimientoPaso',{
+				respuesta_s:vrespuesta,
+				idpaso_sustantivo:idpaso,
+				idcuestionario:idcuest_sustanti
 
 			}).done(function(data){	
 				if(data['mrespuesta']=='OK'){

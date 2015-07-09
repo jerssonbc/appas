@@ -6,8 +6,8 @@
                 <td>
                     <a class = "btn btn-info" href="#" 
                     onClick="openEditPersona('{{$persona->id}}',
-                    '{{$persona->cargo}}','{{$persona->apellidos}}','{{$persona->nombre}}')">Editar</a>
-                    <a class = "btn btn-danger" href="#">Eliminar</a>
+                    '{{$persona->cargo}}','{{$persona->apellidos}}','{{$persona->nombre}}')"><i class="icon-edit"> </i> Editar</a>
+                    
                 </td>
             </tr>
  @endforeach

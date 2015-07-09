@@ -15,11 +15,25 @@
   	<div class="col-lg-12">
 
 		<h2>Cuestionarios Sustantivos</h2>
-		
+		<div class="btn btn-info">
+			Objetivos Especificos
+		</div>
+		<div class="obj1">
+			Evaluar la validez de las operaciones gestionadas por el Sistema de Ventas (DSS01)
+		</div>
+		<div class="obj2 ">
+			Verificar la gestión de problemas del Sistema de Ventas (DSS03)
+		</div>
+		<div class="obj3 ">
+			Evaluar los servicios de seguridad incorporadas en el Sistema de Ventas (DSS05)
+		</div>
+		<div class="obj4 ">
+			Evaluar el grado de satisfacción del trabajador en el momento que hace uso del sistema para procesar alguna venta (ISO9126)
+		</div>
 
 		<a href="#" onclick="openRegCuestSustantivo();" class="btn btn-primary">Nuevo</a>
 
-		<table class="table table-hover table-bordered  ">
+		<table class="table table-bordered  ">
 		    <thead>
 		        <tr>
 		            <th>#</th>
@@ -41,7 +55,26 @@
 
 								$numrows=$cuestionario["num_mi"]+$cuestionario["num_mn"]+$cuestionario["num_ni"]+1;
 							?>
-							<tr class="alinea-tdcentro" >
+							<tr class="alinea-tdcentro 
+			    			@if($cuestionario['psustantiva']->objetivos_especificos_id==1)
+			    			 	objetivo1 
+			    			@else
+			    				@if($cuestionario['psustantiva']->objetivos_especificos_id==2)
+			    					objetivo2
+			    				@else
+			    					@if($cuestionario['psustantiva']->objetivos_especificos_id==3)
+			    						objetivo3
+				    				@else
+				    					@if($cuestionario['psustantiva']->objetivos_especificos_id==4)
+			    						objetivo4
+					    				@else
+					    					
+					    				@endif
+				    					
+				    				@endif
+
+			    				@endif
+			    			@endif " >
 								<td rowspan="{{$numrows}}" style="vertical-align:middle;">{{$cont++}}</td>
 
 								<td rowspan="{{$numrows}}" style="vertical-align:middle;">
@@ -77,7 +110,26 @@
 							</tr>
 							@if($cuestionario["num_mi"]>0)
 					    		@foreach($cuestionario['marcos_i'] as $mi)
-											<tr>
+											<tr class="alinea-tdcentro 
+			    			@if($cuestionario['psustantiva']->objetivos_especificos_id==1)
+			    			 	objetivo1 
+			    			@else
+			    				@if($cuestionario['psustantiva']->objetivos_especificos_id==2)
+			    					objetivo2
+			    				@else
+			    					@if($cuestionario['psustantiva']->objetivos_especificos_id==3)
+			    						objetivo3
+				    				@else
+				    					@if($cuestionario['psustantiva']->objetivos_especificos_id==4)
+			    						objetivo4
+					    				@else
+					    					
+					    				@endif
+				    					
+				    				@endif
+
+			    				@endif
+			    			@endif ">
 												<td>
 													{{$mi->marcoInternacional->nombre}}
 												</td>
@@ -87,7 +139,26 @@
 					    	@endif
 					    	@if($cuestionario["num_mn"]>0)
 					    		@foreach($cuestionario['marcos_n'] as $mn)
-											<tr>
+											<tr class="alinea-tdcentro 
+			    			@if($cuestionario['psustantiva']->objetivos_especificos_id==1)
+			    			 	objetivo1 
+			    			@else
+			    				@if($cuestionario['psustantiva']->objetivos_especificos_id==2)
+			    					objetivo2
+			    				@else
+			    					@if($cuestionario['psustantiva']->objetivos_especificos_id==3)
+			    						objetivo3
+				    				@else
+				    					@if($cuestionario['psustantiva']->objetivos_especificos_id==4)
+			    						objetivo4
+					    				@else
+					    					
+					    				@endif
+				    					
+				    				@endif
+
+			    				@endif
+			    			@endif ">
 												<td>
 													{{$mn->marcoNacional->nombre}}
 												</td>
@@ -98,7 +169,26 @@
 					    	@if($cuestionario["num_ni"]>0)
 					    		@foreach($cuestionario['normas_i'] as $ni)
 											<tr>
-												<td>
+												<td class="alinea-tdcentro 
+			    			@if($cuestionario['psustantiva']->objetivos_especificos_id==1)
+			    			 	objetivo1 
+			    			@else
+			    				@if($cuestionario['psustantiva']->objetivos_especificos_id==2)
+			    					objetivo2
+			    				@else
+			    					@if($cuestionario['psustantiva']->objetivos_especificos_id==3)
+			    						objetivo3
+				    				@else
+				    					@if($cuestionario['psustantiva']->objetivos_especificos_id==4)
+			    						objetivo4
+					    				@else
+					    					
+					    				@endif
+				    					
+				    				@endif
+
+			    				@endif
+			    			@endif ">
 													{{$ni->normaInstitucional->nombre}}
 												</td>
 												
@@ -295,11 +385,15 @@
 								</div>
 
 							{{Form::close()}}
+							<div class="alert alert-success" id="mensajerespuesta">
+                                Respuesta registrada exitosamente.
+                            </div>
 							<!-- tabla Pasos -->
-							<table class="table table-hover">
+							<table class="table table-striped table-bordered table-hover">
 							    <thead>
 							        <tr>
 							        	<th>Pasos a Seguir</th>
+							        	<th style="text-align:center;">Cumplimiento</th>
 							            
 							        </tr>
 							    </thead>
@@ -347,11 +441,11 @@
 							{{Form::hidden('id_cuestionariolista', '',array('id'=>'id_cuestionariolista'))}}
 
 							<!-- tabla preguntas -->
-							<table class="table table-hover" id="data-listapreguntacumpl">
+							<table class="table table-striped table-bordered table-hover" id="data-listapreguntacumpl">
 							    <thead>
 							         <tr>
 							        	<th>Pasos a Seguir</th>
-							            
+							            <th style="text-align:center">Cumplimiento</th>
 							        </tr>
 							    </thead>
 							    <tbody id="listapasos_sustantivos">

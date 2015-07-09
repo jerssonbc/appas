@@ -19,8 +19,8 @@
             </div>
         </div>
         <div class="form-group">
-                    <div class="col-sm-offset-2 ">
-                      <button type="submit" class="btn btn-primary">Guardar</button>
+                    <div class="col-sm-offset-5">
+                      <button type="submit" class="btn btn-primary"><i class="icon-save"> </i> Guardar</button>
                       
                     </div>
         </div>
@@ -40,9 +40,9 @@
                 @foreach($objetivos as $objetivos)
                 <tr>
                     <td>{{ $objetivos->descripcion }}</td>
-                    <td>
-                        <a class = "btn btn-info" href="{{url('/objetivosEdit',$objetivos->id )}}">Editar</a>
-                        <a class = "btn btn-danger" href="#">Eliminar</a>
+                    <td style="text-align:center;">
+                        <a class = "btn btn-info" href="{{url('/objetivosEdit',$objetivos->id )}}"><i class="icon-edit"> </i>Editar</a>
+                        
                     </td>
                 </tr>
                 @endforeach

@@ -19,6 +19,7 @@ class PasoSustantivosController extends BaseController
 				            ->where('tbla_pasos_sustantivos.pruebasustantiva_id', '=',Input::get('idcuestionario'))
 
 				            ->select('tbla_pasos_sustantivos.id', 'tbla_pasos_sustantivos.descripcion',
+				            		'tbla_pasos_sustantivos.cumplimiento',
 				            	 'tbla_pasos_sustantivos.pruebasustantiva_id')
 				            ->get();
 
@@ -67,6 +68,7 @@ class PasoSustantivosController extends BaseController
 				            ->where('tbla_pasos_sustantivos.pruebasustantiva_id', '=',Input::get('idcuestionario'))
 
 				            ->select('tbla_pasos_sustantivos.id', 'tbla_pasos_sustantivos.descripcion',
+				            	'tbla_pasos_sustantivos.cumplimiento',
 				            	 'tbla_pasos_sustantivos.pruebasustantiva_id')
 				            ->get();
 
@@ -77,6 +79,16 @@ class PasoSustantivosController extends BaseController
 					
 				}
 			}else{
+
+			}
+		}
+		public function SaveCumplimiento(){
+			if (Request::ajax()) {
+				 PasoSustantivoModel::where('id','=',Input::get('idpaso_sustantivo'))
+				 							->where('pruebasustantiva_id','=',Input::get('idcuestionario'))
+				 							->update(array('cumplimiento' => Input::get('respuesta_s')));
+
+				 return array('mrespuesta'=>'OK');
 
 			}
 		}

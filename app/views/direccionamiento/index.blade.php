@@ -26,9 +26,9 @@
           {{ $direccionamiento->vision }}
         </div>
       </div> 
-      <a href="{{url('/direccionamientoEdit')}}" class="btn btn-primary">Editar Direccionamiento</a>
+      <a href="{{url('/direccionamientoEdit')}}" class="btn btn-primary"> <i class="icon-edit-sign"> </i>Editar Direccionamiento</a>
       @else
-          <a href="{{url('/direccionamientoNuevo')}}" class="btn btn-primary">Nuevo Direccionamiento</a>
+          <a href="{{url('/direccionamientoNuevo')}}" class="btn btn-primary"> <i class="icon-file-alt"> </i>  Nuevo Direccionamiento</a>
       @endif
   </div>
 </div>

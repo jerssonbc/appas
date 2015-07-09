@@ -9,7 +9,7 @@
 <hr />
 <div class="row">
   	<div class="col-lg-12">
-  	<a href="{{url('/personaEntrevistarNueva')}}" class="btn btn-primary">Nueva Persona</a>
+  	<a href="{{url('/personaEntrevistarNueva')}}" class="btn btn-primary"><i class="icon-file-alt"> </i> Nueva Persona</a>
 
 		<table class="table table-striped">
 		    <thead>
@@ -28,8 +28,8 @@
 		                <td>
 		                    <a class = "btn btn-info" href="#" 
 		                    onClick="openEditPersona('{{$persona->id}}',
-		                    '{{$persona->cargo}}','{{$persona->apellidos}}','{{$persona->nombre}}')">Editar</a>
-		                    <a class = "btn btn-danger" href="#">Eliminar</a>
+		                    '{{$persona->cargo}}','{{$persona->apellidos}}','{{$persona->nombre}}')"><i class="icon-edit"> </i>Editar</a>
+		                    
 		                </td>
 		            </tr>
 		            @endforeach

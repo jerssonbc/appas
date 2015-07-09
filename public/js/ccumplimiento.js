@@ -52,13 +52,16 @@ function removeElement(){
 //función para mostra el pop up de registro de cuestionario de cumplimiento
 function openRegCuesCumplimiento()
 {
+	marcosutilizar=new Array();
 	$('#nuevo_cuestionarioc').each (function(){
   		this.reset();
 	});
-
+	$("#mautilizar").html("");
+	$("#imutilizar").html("");
+	marcosutilizar=new Array();
 	
 	$('#nuevapcumplimiento').modal('show');
-	marcosutilizar=new Array();
+	
 
 }
 //funcion para grabar un nuevo custionario de cumplimiento
@@ -72,27 +75,31 @@ $('#nuevo_cuestionarioc').submit(function(event){
 	var vfechai= cambiarFormato($("input[name=fechai]").val());
 	var vfechaf=cambiarFormato($("input[name=fechaf]").val());
 
-	
+	var tam=marcosutilizar.length;
 
-	$.post('registrarCCumplimiento',{tituloc:vtitulo,
+	if(tam>0){
+		$.post('registrarCCumplimiento',{tituloc:vtitulo,
 				oespecifico:voespecifico,
 				mutilizar:marcosutilizar,pentrevistar:vpentrevistar,
 				fechai:vfechai,fechaf:vfechaf
 			}).done(function(data){	
 				if(data['error']=='0'){
-					alert("Registro exitos");
+					alert("Registro exitoso!!!");
 					$('#nuevapcumplimiento').modal('hide');
-					// $("#cdialog").dialog( "open" );
+					
 					$("#datacuestionarios").html(data["dcuestionarios"]);
 				}else{
-					// $('#newPlan').modal('hide');
-					// $("#mdialog" ).html(data['edata']);
-					// $("#mdialog").dialog( "open" );
+					
 					alert("ERrro"+data);
 				}	
 			}).fail(function(data){
 				alert("Hubo error"+data);
 			});
+		}else{
+			alert("Seleccione almenos un marco utilizado.");
+		}
+
+	
 });
 
 //cambiar formato de fecha
@@ -167,8 +174,13 @@ $('#nueva_preguntac').submit(function(event){
 				idcuestionario:vidcuestionarioc
 			}).done(function(data){	
 				if(data['error']=='0'){
-					alert("Registro exitoso");
+					alert("Registro exitoso!!!");
+					
 					$("#datapreguntacumpl").html(data["dpreguntas"]);
+					$("#preguntac").val('');
+					$("#preguntac").focus();
+
+
 				}else{
 
 					alert(data['edata']);

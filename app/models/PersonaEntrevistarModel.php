@@ -14,12 +14,12 @@
 		private $regla=array(
 			'nombre'    => 'required|max:100|regex:/^([a-zA-ZñÑáéíóúÁÉÍÓÚ])+((\s*)+([a-zA-ZñÑáéíóúÁÉÍÓÚ]*)*)+$/',
 			'apellidos' => 'required|max:70|regex:/^([a-zA-ZñÑáéíóúÁÉÍÓÚ])+((\s*)+([a-zA-ZñÑáéíóúÁÉÍÓÚ]*)*)+$/',
-			'cargo' 	=> 'required|max:50|regex:/^([a-zA-ZñÑáéíóúÁÉÍÓÚ])+((\s*)+([a-zA-ZñÑáéíóúÁÉÍÓÚ]*)*)+$/'
+			'cargo' 	=> 'required|max:50|regex:/^([a-zA-ZñÑáéíóúÁÉÍÓÚ-])+((\s*)+([a-zA-ZñÑáéíóúÁÉÍÓÚ-]*)*)+$/'
 			);
 		private $mensajes=array(
-			'nombre.regex'     =>'El nombre debe contener solamente letras ',
-			'apellidos.regex'   =>'Los apellidos debe contener solamente letras',
-			'cargo.regex'   =>'Los apellidos debe contener solamente letras',
+			'nombre.alpha'     =>'El nombre debe contener solamente letras ',
+			'apellidos.alpha'   =>'Los apellidos debe contener solamente letras',
+			'cargo.alpha'   =>'Los apellidos debe contener solamente letras',
 			'nombre.required'  =>'El nombre es obligatorio',
 			'apellidos.required'=>'Los apellido es obligatorio',
 			'cargo.required'=>'Los apellido es obligatorio',

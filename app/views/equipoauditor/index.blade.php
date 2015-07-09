@@ -9,9 +9,9 @@
 <div class="row">
   	<div class="col-lg-12">
 		<!-- <a href="#" onClick="openRegAuditor();" class="btn btn-primary">Nuevo</a> -->
-		<a href="{{url('/nuevoAuditor')}}" class="btn btn-primary">Nuevo</a>
+		<a href="{{url('/nuevoAuditor')}}" class="btn btn-primary"><i class="icon-file-alt"> </i> Nuevo</a>
 
-		<table class="table table-striped">
+		<table class="table table-striped table-hover">
 		    <thead>
 		        <tr>
 		            <th>#</th>
@@ -29,28 +29,28 @@
 		    		<?php $cont=1; ?>
 		            @foreach($auditores as $auditor)
 		            <tr id="auditor_{{$auditor->id}}">
-		                <td>{{$cont++}}</td>
-		                <td>{{$auditor->apellidos}},{{$auditor->nombre}}</td>
-		                <td>{{$auditor->dni}}</td>
-		                <td>{{$auditor->email}}</td>
+		                <td style="vertical-align:middle;">{{$cont++}}</td>
+		                <td style="vertical-align:middle;">{{$auditor->apellidos}},{{$auditor->nombre}}</td>
+		                <td style="vertical-align:middle;">{{$auditor->dni}}</td>
+		                <td style="vertical-align:middle;">{{$auditor->email}}</td>
 		                @if($auditor->telefono)
-		                	<td>{{$auditor->telefono}}
+		                	<td style="vertical-align:middle;">{{$auditor->telefono}}
 		                	@if($auditor->celular)
 		                		/{{$auditor->celular}}</td>
 		                	@else
 								</td>
 		                	@endif
 		                @else
-		                	<td>{{$auditor->celular}}</td>
+		                	<td style="vertical-align:middle;">{{$auditor->celular}}</td>
 		                @endif
 		               <!--  <td>{{$auditor->telefono}}/{{$auditor->celular}}</td> -->
-		                <td>{{$auditor->direccion}}</td>
-		                <td>{{$auditor->carrera_profesional}}</td>
-		                <td>{{$auditor->rolequipo->rol}}</td>
-		                <td><a class = "btn btn-info" href="#" 
+		                <td style="vertical-align:middle;">{{$auditor->direccion}}</td>
+		                <td style="vertical-align:middle;">{{$auditor->carrera_profesional}}</td>
+		                <td style="vertical-align:middle;">{{$auditor->rolequipo->rol}}</td>
+		                <td style="vertical-align:middle; text-align:center;"><a class = "btn btn-info" href="#" 
 		                	onClick="openEditAuditor('{{$auditor->apellidos}}','{{$auditor->nombre}}',
 										'{{$auditor->telefono}}','{{$auditor->celular}}','{{$auditor->id}}',
-		                				'{{$auditor->perfilequipo_id}}');" >Editar</a></td>
+		                				'{{$auditor->perfilequipo_id}}');" ><i class="icon-edit"> </i> Editar</a></td>
 		            </tr>
 		            @endforeach
 		    </tbody>

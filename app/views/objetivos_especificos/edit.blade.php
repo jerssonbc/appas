@@ -20,8 +20,8 @@
 
 
 		<div class="form-group">
-		            <div class="col-sm-offset-2 col-sm-10">
-		              <button type="submit" class="btn btn-primary">Actualizar</button>
+		            <div class="col-sm-offset-5 col-sm-5">
+		              <button type="submit" class="btn btn-primary"><i class="icon-save"> </i> Actualizar</button>
 		            </div>
 		        </div>
 		    {{ Form::close() }}

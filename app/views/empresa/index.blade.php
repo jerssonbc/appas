@@ -37,7 +37,7 @@
       </div>  
       <div class="form-group">
                   <div class="col-sm-offset-2 col-sm-10">
-                    <a href="{{url('/empresaEdit')}}" class="btn btn-primary">Editar</a>
+                    <a href="{{url('/empresaEdit')}}" class="btn btn-primary"><i class="icon-save"> </i> Editar</a>
                   </div>
       </div>
   </div>

@@ -9,7 +9,7 @@
 <div class="row">
   	<div class="col-lg-12">
 		<h3>Roles</h3>
-		<a href="{{url('/nuevoRolPerfil')}}" class="btn btn-primary">Nuevo</a>
+		<a href="{{url('/nuevoRolPerfil')}}" class="btn btn-primary"><i class="icon-file-alt"></i> Nuevo</a>
 
 		<table class="table table-hover table-bordered">
 		    <thead>
@@ -25,7 +25,7 @@
 		            <tr>
 		                <td>{{$cont++}}</td>
 		                <td><span id="spanrol_{{$rol->id}}">{{ $rol->rol }}</span></td>
-		                <td><a class = "btn btn-info" href="#" onClick="openEditRol('{{$rol->id}}');" >Editar</a></td>
+		                <td style="text-align:center;"><a class = "btn btn-info" href="#" onClick="openEditRol('{{$rol->id}}');" ><i class="icon-edit"> </i> Editar</a></td>
 		            </tr>
 		            @endforeach
 		    </tbody>
@@ -74,7 +74,7 @@
 		<h3>Perfiles de Roles</h3>
 
 		@if($numroles>0)
-			 <a href="{{url('/nuevoPerfilRol')}}" class="btn btn-primary">Nuevo</a>
+			 <a href="{{url('/nuevoPerfilRol')}}" class="btn btn-primary"><i class="icon-file-alt"> </i>Nuevo</a>
 			<table class="table table-hover">
 			    <thead>
 			        <tr>
@@ -101,7 +101,7 @@
 										{{$perfil->perfil}}
 									</td>
 									<td>
-										<a class = "btn btn-info" href="{{url('/editarPerfil',$perfil->id )}}">Editar</a>
+										<a class = "btn btn-info" href="{{url('/editarPerfil',$perfil->id )}}"><i class="icon-edit"> </i> Editar</a>
 									</td>
 								</tr>
 			            	@endforeach
