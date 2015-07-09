@@ -158,5 +158,5 @@ Route::post('autenticar','UsuariosController@autenticar');
 
 App::missing(function($exception)
 {
-	return View::make('404');
+	return View::make('error_404');
 });
