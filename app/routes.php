@@ -154,3 +154,9 @@ Route::group(array('before'=>'validar'),function(){
 
 Route::post('registrar','UsuariosController@registrar_user');
 Route::post('autenticar','UsuariosController@autenticar');
+
+
+App::missing(function($exception)
+{
+	return View::make('404');
+});
